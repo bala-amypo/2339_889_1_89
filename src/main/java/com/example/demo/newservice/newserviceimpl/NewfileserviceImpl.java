@@ -9,27 +9,27 @@ public class NewfileserviceImpl implements NewfileService{
     NewfileserviceImpl(){
         this.rep=rep;
     }
-    @override
+    @Override
     public StudentValidation savedata(StudentValidation newfile){
         return rep.save(newfile);
     }
-    @override
+    @Override
     public StudentValidation getidval(Long id){
         return rep.findby(id);
 
     }
-    @override
+    @Override
     public List<StudentValidation> getall(){
         return rep.findall();
     }
-    @override
+    @Override
     public StudentValidation update(Long id,StudentValidation newfile){
         StudentValidation existing=getidval(id);
         existing.setName(newfile.getName());
         existing.setEmail(newfile.getEmail());
         return rep.save(existing);
     }
-    @override
+    @Override
     public void delete(Long id){
         return rep.deleteId(id);
     }

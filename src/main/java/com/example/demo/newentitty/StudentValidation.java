@@ -14,10 +14,10 @@ public class StudentValidation{
 
     @NotBlank(message="Should not contain space")
     @Email(message="Invalid fromat")
-    private string email;
+    private String email;
     
-    public StudentValidation(Long id,@NotBlank(message="No permission for outing")string name,
-            @NotBlank(message="Should not contain space") @Email(message="Invalid fromat")String email){
+    public StudentValidation(Long id,@NotBlank(message="No permission for outing")Service String name,
+            @NotBlank(message="Should not contain space") String email){
         this.id=id;
         this.name=name;
         this.email=email;
