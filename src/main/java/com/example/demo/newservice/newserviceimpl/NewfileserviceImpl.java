@@ -10,7 +10,7 @@ public class NewfileserviceImpl implements NewfileService{
         this.rep=rep;
     }
     @override
-    public StudentValidation savedata(st StudentValidation){
+    public StudentValidation savedata(StudentValidation newfile){
         return rep.save(newfile);
     }
     @override
@@ -24,9 +24,9 @@ public class NewfileserviceImpl implements NewfileService{
     }
     @override
     public StudentValidation update(Long id,StudentValidation newfile){
-        StudentValidation existing=getValid(id);
-        existing.setName(newfile,getName());
-        existing.setEmail(newfile,getEmail());
+        StudentValidation existing=getidval(id);
+        existing.setName(newfile.getName());
+        existing.setEmail(newfile.getEmail());
         return rep.save(existing);
     }
     @override
