@@ -20,14 +20,14 @@ public class NewfileServiceImpl implements StudentService{
     }
     @override
     public List<StudentEntity> getall(){
-        return rep.get();
+        return rep.gett();
     }
     @override
     public StudentEntity update(Long id,StudentEntity st){
-        return rep.get(id,st);
+        return rep.updates(id,st);
     }
     @override
     public void delete(Long id){
-        return rep.get(id);
+        return rep.deleteid(id);
     }
 }
