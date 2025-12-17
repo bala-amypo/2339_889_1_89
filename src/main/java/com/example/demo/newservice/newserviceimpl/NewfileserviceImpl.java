@@ -2,9 +2,9 @@ package com.example.service.impl;
 import java.util.*;
 import org.springframework.stereotype.Service;
 import com.example.demo.entity.StudentEntity;
-import com.example.demo.service.StudentService;
+import com.example.demo.service.NewfileService;
 @Service
-public class NewfileServiceImpl implements StudentService{
+public class NewfileServiceImpl implements NewfileService{
     private final StudentRepo rep;
     StudentServiceImpl(){
         this.rep=rep;
@@ -25,7 +25,7 @@ public class NewfileServiceImpl implements StudentService{
     @override
     public StudentEntity update(Long id,StudentEntity newfile){
         StudentEntity existing=getValid(id);
-        existing.setName()
+        existing.setName
         existing.setEmail(Newfile)
         return rep.updateval(id,st);
     }
