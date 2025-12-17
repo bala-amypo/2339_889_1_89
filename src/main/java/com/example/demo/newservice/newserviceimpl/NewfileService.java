@@ -6,6 +6,7 @@ public interface NewfileService{
     StudentValidation savedata(StudentValidation newfile);
     StudentValidation getidval(Long id);
     List<StudentValidation>getall();
-    StudentValidation update(Long id,St)
+    StudentValidation update(Long id,StudentValidation newfile);
+    void<StudentEntity> delete(Long id);
 
 }
