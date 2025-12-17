@@ -15,18 +15,19 @@ public class NewfileServiceImpl implements StudentService{
     }
     @override
     public StudentValidation getidval(Long id){
+        return rep.get(id);
 
     }
     @override
     public List<StudentEntity> getall(){
-
+        return rep.get();
     }
     @override
     public StudentEntity update(Long id,StudentEntity st){
-
+        return rep.get(id,st);
     }
     @override
     public void delete(Long id){
-
+        return rep.get(id);
     }
 }
