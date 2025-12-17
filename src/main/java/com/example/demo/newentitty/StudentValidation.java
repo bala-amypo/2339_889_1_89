@@ -22,24 +22,22 @@ public class StudentValidation{
         this.name=name;
         this.email=email;
     }
-    public StudentValidation(){
-    }
     public Long getId(){
         return id;
     }
     public void setId(Long id){
-        return id;
+        this.id=id;
     }
     public String getName(){
         return name;
     }
     public void setName(String name){
-        return name;
+        this.name= name;
     }
     public Long getEmail(){
-        return Email;
-    }
-    public void setEmail(String id){
         return email;
+    }
+    public void setEmail(String email){
+        this.email=email;
     }
 }
