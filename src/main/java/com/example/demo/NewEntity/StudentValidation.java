@@ -18,7 +18,7 @@ package com.example.demo.newentity;
      @NotBlank(message = "no blank allowed")
      @Email(message = "invalid format")
     private String email;
-    public NewfileEntity(long id, @NotBlank(message = "should not contain spaces") String name,   @NotBlank(message = "no blank allowed") String email) {
+    public StudentValidation(long id, @NotBlank(message = "should not contain spaces") String name,   @NotBlank(message = "no blank allowed") String email) {
       this.id = id;
       this.name = name;
       this.email = email;
