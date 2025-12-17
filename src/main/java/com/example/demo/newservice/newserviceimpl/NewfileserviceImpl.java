@@ -23,7 +23,8 @@ public class NewfileServiceImpl implements StudentService{
         return rep.findall();
     }
     @override
-    public StudentEntity update(Long id,StudentEntity st){
+    public StudentEntity update(Long id,StudentEntity newfile){
+        StudentEntity 
         return rep.updateval(id,st);
     }
     @override
