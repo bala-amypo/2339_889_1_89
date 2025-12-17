@@ -10,7 +10,7 @@ public class NewfileServiceImpl implements NewfileService{
         this.rep=rep;
     }
     @override
-    public StudentValidation savedata(StudentEntity st){
+    public StudentValidation savedata(st StudentValidation){
         return rep.save(newfile);
     }
     @override
