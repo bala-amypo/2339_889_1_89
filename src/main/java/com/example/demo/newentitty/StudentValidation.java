@@ -16,7 +16,7 @@ public class StudentValidation{
     @Email(message="Invalid fromat")
     private String email;
     
-    public StudentValidation(Long id,@NotBlank(message="No permission for outing")Service String name,
+    public StudentValidation(Long id,@NotBlank(message="No permission for outing") String name,
             @NotBlank(message="Should not contain space") String email){
         this.id=id;
         this.name=name;
