@@ -6,7 +6,7 @@ import com.example.demo.service.NewfileService;
 @Service
 public class NewfileServiceImpl implements NewfileService{
     private final StudentRepo rep;
-    StudentServiceImpl(){
+    NewfileServiceImpl(){
         this.rep=rep;
     }
     @override
@@ -25,13 +25,12 @@ public class NewfileServiceImpl implements NewfileService{
     @override
     public StudentEntity update(Long id,StudentEntity newfile){
         StudentEntity existing=getValid(id);
-        existing.setName
-        existing.setEmail(Newfile)
-        return rep.updateval(id,st);
+        existing.setName(Newfile,getName)
+        existing.setEmail(Newfile,getEmail)
+        return rep.save(existing);
     }
     @override
     public void delete(Long id){
-        return rep.deleteid(id);
-
+        return rep.deleteyId(id);
     }
 }
