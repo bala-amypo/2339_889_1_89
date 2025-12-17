@@ -2,7 +2,13 @@ package com.example.service.impl;
 import java.util.*;
 import org.springframework.stereotype.Service;
 import com.example.demo.entity.StudentEntity;
+import com.example.demo.service.StudentService;
+@Service
 public class NewfileServiceImpl implements StudentService{
+    private final StudentRepo rep;
+    StudentServiceImpl(){
+        this.rep=rep;
+    }
     @override
     public StudentValidation savedata(StudentEntity st){
 
