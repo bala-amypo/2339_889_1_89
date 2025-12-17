@@ -16,22 +16,22 @@ import com.example.demo.service.StudentService;
 @RestController
 public class NewFileControl {
     @Autowired
-    StudentSerice src;
+    NewfileService src;
     @PostMapping("/post")
-    public StudentEntity postdata(@RequestBody StudentEntity st){
+    public StudentEntity postdata(@RequestBody StudentValidation st){
         return src.savedata(st);
     }
     @GetMapping("/get")
-    public List<StudentEntity> getdata(){
+    public List<StudentValidation> getdata(){
         return src.retdata();
     }
 
     @GetMapping("/getid/{id}")
-    public StudentEntity getIdVal(int id){
+    public StudentValidation getIdVal(int id){
         return src.id(id);
     }
     @PutMapping("/update/{id}")
-    public StudentEntity updateId(@PathVariable int id,@RequestBody StudentEntity st){
+    public StudentValidation updateId(@PathVariable int id,@RequestBody StudentValidation st){
         return src.updid(id,st);
     }
 }
