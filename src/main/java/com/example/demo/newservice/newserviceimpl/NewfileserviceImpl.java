@@ -11,7 +11,7 @@ public class NewfileServiceImpl implements StudentService{
     }
     @override
     public StudentValidation savedata(StudentEntity st){
-
+        return rep.save(newfile);
     }
     @override
     public StudentValidation getidval(Long id){
