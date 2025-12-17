@@ -10,5 +10,9 @@ public class NewfileServiceImpl implements StudentService{
 
     }
     @override
-    public List<StudentEntity> getall(){}
+    public List<StudentEntity> getall(){
+
+    }
+    @override
+    
 }
