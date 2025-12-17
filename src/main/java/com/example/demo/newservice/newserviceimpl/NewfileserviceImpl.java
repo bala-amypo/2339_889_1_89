@@ -24,7 +24,9 @@ public class NewfileServiceImpl implements StudentService{
     }
     @override
     public StudentEntity update(Long id,StudentEntity newfile){
-        StudentEntity 
+        StudentEntity existing=getValid(id);
+        existing.setName()
+        existing.setEmail(Newfile)
         return rep.updateval(id,st);
     }
     @override
