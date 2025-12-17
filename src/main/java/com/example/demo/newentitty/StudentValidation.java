@@ -2,7 +2,7 @@ package com.example.demo.newentity;
 import jakarta.presistence.*;
 import jakarta.Validation.constraints.*;
 
-@Entity
+@StudentValidation
 @Table(name="Student")
 public class StudentValidation{
     @Id
