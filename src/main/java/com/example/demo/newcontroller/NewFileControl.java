@@ -14,9 +14,9 @@ import com.example.demo.entity.StudentEntity;
 import com.example.demo.service.StudentService;
 
 @RestController
-public class StudentController {
+public class NewFileControl {
     @Autowired
-    StudentService src;
+    StudentSerice src;
     @PostMapping("/post")
     public StudentEntity postdata(@RequestBody StudentEntity st){
         return src.savedata(st);

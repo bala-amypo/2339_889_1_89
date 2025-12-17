@@ -19,12 +19,12 @@ public class NewfileServiceImpl implements NewfileService{
 
     }
     @override
-    public List<StudentEntity> getall(){
+    public List<StudentValidation> getall(){
         return rep.findall();
     }
     @override
-    public StudentEntity update(Long id,StudentEntity newfile){
-        StudentEntity existing=getValid(id);
+    public StudentValidation update(Long id,StudentValidation newfile){
+        StudentValidation existing=getValid(id);
         existing.setName(Newfile,getName)
         existing.setEmail(Newfile,getEmail)
         return rep.save(existing);
