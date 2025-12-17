@@ -7,6 +7,6 @@ public interface NewfileService{
     StudentValidation getidval(Long id);
     List<StudentValidation>getall();
     StudentValidation update(Long id,StudentValidation newfile);
-    void<StudentEntity> delete(Long id); 
+    void delete(Long id); 
 
 }
