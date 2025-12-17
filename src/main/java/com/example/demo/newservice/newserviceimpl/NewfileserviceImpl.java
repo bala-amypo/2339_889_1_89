@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.StudentEntity;
 import com.example.demo.service.NewfileService;
 @Service
-public class NewfileServiceImpl implements NewfileService{
+public class NewfileserviceImpl implements NewfileService{
     private final StudentRepo rep;
     NewfileServiceImpl(){
         this.rep=rep;
@@ -26,7 +26,7 @@ public class NewfileServiceImpl implements NewfileService{
     public StudentValidation update(Long id,StudentValidation newfile){
         StudentValidation existing=getValid(id);
         existing.setName(newfile,getName());
-        existing.setEmail(newfile,getEmail())
+        existing.setEmail(newfile,getEmail());
         return rep.save(existing);
     }
     @override
