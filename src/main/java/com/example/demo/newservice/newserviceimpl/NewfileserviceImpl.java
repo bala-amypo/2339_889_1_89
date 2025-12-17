@@ -6,7 +6,7 @@ import com.example.demo.service.NewfileService;
 @Service
 public class NewfileserviceImpl implements NewfileService{
     private final StudentRepo rep;
-    NewfileServiceImpl(){
+    NewfileserviceImpl(){
         this.rep=rep;
     }
     @override
@@ -31,6 +31,6 @@ public class NewfileserviceImpl implements NewfileService{
     }
     @override
     public void delete(Long id){
-        return rep.deleteyId(id);
+        return rep.deleteId(id);
     }
 }
