@@ -25,8 +25,8 @@ public class NewfileServiceImpl implements NewfileService{
     @override
     public StudentValidation update(Long id,StudentValidation newfile){
         StudentValidation existing=getValid(id);
-        existing.setName(Newfile,getName)
-        existing.setEmail(Newfile,getEmail)
+        existing.setName(newfile,getName());
+        existing.setEmail(newfile,getEmail())
         return rep.save(existing);
     }
     @override
