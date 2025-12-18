@@ -14,7 +14,7 @@ public class CategorizationRule(){
     public CategorizationRule(){
 
     }
-     public Category(Long id,Category category,String keyword,Integer priority,LocalDateTime createdAt){
+     public CategorizationRule(Long id,Category category,String keyword,Integer priority,LocalDateTime createdAt){
         this.id=id;
         this.category=category;
         this.keyword=keyword;
