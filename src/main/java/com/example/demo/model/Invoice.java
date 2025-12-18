@@ -12,23 +12,23 @@ public class Invoice(){
     private LocalDate invoiceDate;
     private String description;
     private Category category;
-    
-    private String ADMIN;
-    private String USER;
-    private LocalDateTime createdAt;
+    private User uploadedBy;
+    private LocalDateTime uploadedAt;
 
-    public User(){
+    public Invoice(){
 
     }
-    public User(Long id,String fullName,String email,String password,String ADMIN,String USER,LocalDateTime createdAt){
+    public Invoice(Long id,Vendor vendor,String invoiceNumber, Double amount,LocalDate invoiceDate,String description, Category category, User uploadedBy,LocalDateTime uploadedAt){
         this.id=id;
-        this.fullName=fullname;
-        this.email=email;
-        this.password=password;
-        this.ADMIN=ADMIN;
-        this.USER=USER;
-        this.createAt=createdAt;
-    }
+        this.vendor=vendor;
+        this.invoiceNumber=invoiceNumber;
+        this.amount=amount;
+        this.invoiceDate=invoiceDate;
+        this.description=description;
+        this.category;
+        private User uploadedBy;
+        private LocalDateTime uploadedAt;
+        }
 
     public Long getId(){
         return id;
