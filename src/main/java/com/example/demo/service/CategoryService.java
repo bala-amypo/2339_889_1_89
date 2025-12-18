@@ -3,5 +3,7 @@ import java.util.List;
 import com.example.demo.entity.Category;
 
 public interface CategoryService{
-    Category createCategory(Cate)
+    Category createCategory(Category category);
+    Category getCategory(Long id);
+    List<Category> getAllCategories();
 }
