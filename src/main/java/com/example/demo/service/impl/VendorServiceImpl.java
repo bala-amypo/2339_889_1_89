@@ -10,17 +10,18 @@ import com.example.demo.service.VendorService;
 public class VendorServiceImpl implements VendorService{
 
     @Autowired
-    private VendorRepository VendorRepository;
+    private VendorRepository vendorRepository;
 
     @override
-    public Vendor cjreateVendor(Vendor vendor){
-        return VendorRepository.save(vendor);
+    public Vendor createVendor(Vendor vendor){
+        return vendorRepository.save(vendor);
     }
 
     @override
     public Vendor getVendor(Long vendorId){
-        return VendorRepository.findById(vendorId).orelse(null);
+        return vendorRepository.findById(vendorId).orElse(null);
     }
+
     @override
     public List<Vendor> getAllVendors(){
         return VendorRepository.findAll();
