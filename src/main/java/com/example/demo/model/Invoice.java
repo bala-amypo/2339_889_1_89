@@ -25,9 +25,9 @@ public class Invoice(){
         this.amount=amount;
         this.invoiceDate=invoiceDate;
         this.description=description;
-        this.category;
-        private User uploadedBy;
-        private LocalDateTime uploadedAt;
+        this.category=category;
+        this.uploadedBy=uploadedBy;
+        this.uploadedAt=uploadedAt;
         }
 
     public Long getId(){
