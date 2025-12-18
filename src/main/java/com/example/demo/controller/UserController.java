@@ -1,23 +1,22 @@
 package com.example.demo.controller;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import io.swagger.v3.oas.annotation.tags.Tag;
-
-
-import com.example.demo.entity.StudentEntity;
-import com.example.demo.service.StudentService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import com.example.demo.entity.User;
+import com.example.demo.service.UserService;
 
 @RestController
-public class StudentController {
+@RequestMapping("/api/users")
+@Tag(name = "Users Endpoints")
+public class UserController {
+
     @Autowired
-    StudentService src;
-    @PostMapping("/post")
-    public StudentEntity postdata(@RequestBody StudentEntity st){
-        return src.savedata(st);
+    private UserService userService;
+
+    @PostMapping("/register")
+    public User registerUser(@RequestBody User user){
+        return (st);
     }
     @GetMapping("/get")
     public List<StudentEntity> getdata(){
