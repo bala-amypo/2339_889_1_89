@@ -36,5 +36,14 @@ public class Invoice(){
     public void setId(Long id){
         this.id=id;
     }
-    public String getFullName(){
-        return full
+    public Vendor getVendor(){
+        return vendor;
+    }
+    public void setVendor(Vendor vendor){
+        this.vendor=vendor;
+    }
+    public Vendor getVendor(){
+        return vendor;
+    }
+    public void setVendor(Vendor vendor){
+        this.vendor=vendor;
