@@ -3,5 +3,7 @@ import java.util.List;
 import com.example.demo.entity.User;
 
 public interface UserService{
-    User registr
+    User registerUser(User user);
+    User findByEmail(String email);
+    List<User> getAllUsers();
 }
