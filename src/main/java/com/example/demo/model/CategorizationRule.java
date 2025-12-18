@@ -7,17 +7,18 @@ import jakarta.validation.constranints.*;
 public class CategorizationRule(){
     private Long id;
     private Category category;
-    private String Keyword;
+    private String keyword;
     private Integer priority;
     private LocalDateTime createdAt;
     
     public CategorizationRule(){
 
     }
-     public Category(Long id,Category category,String Keyword,Integer priority,LocalDateTime createdAt){
+     public Category(Long id,Category category,String keyword,Integer priority,LocalDateTime createdAt){
         this.id=id;
-        this.categoryName=categoryName;
-        this. description=description;
+        this.category=category;
+        this.keyword=keyword;
+        this.priority=priority;
         this.createdAt=createdAt;
     }
 
@@ -27,17 +28,23 @@ public class CategorizationRule(){
     public void setId(Long id){
         this.id=id;
     }
-    public String getCategoryName(){
-        return categoryName;
+    public Category getCategory(){
+        return category;
     }
-    public void setCategoryName(String CategoryName){
-        this.categoryName=categoryName;
+    public void setCategory(Category category){
+        this.category=category;
     }
-    public String getDescription(){
-        return description;
+    public String getKeyword(){
+        return keyword;
     }
-    public void setDescription(String description){
-        this.description=description;
+    public void setKeyword(String Keyword){
+        this.keyword=keyword;
+    }
+    public Integer getPriority(){
+        return keyword;
+    }
+    public void setPriority(Integer priority){
+        this.keyword=keyword;
     }
 }
 
