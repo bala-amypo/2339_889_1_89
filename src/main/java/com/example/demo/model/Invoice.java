@@ -42,8 +42,21 @@ public class Invoice(){
     public void setVendor(Vendor vendor){
         this.vendor=vendor;
     }
-    public Vendor getVendor(){
-        return vendor;
+    public String getInvoiceNumber(){
+        return invoiceNumber;
     }
-    public void setVendor(Vendor vendor){
-        this.vendor=vendor;
+    public void setInvoiceNumber(String invoiceNumber){
+        this.invoiceNumber=invoiceNumber;
+    }
+    public Double getAmount(){
+        return amount;
+    }
+    public void setAmount(Double amount){
+        this.amount=amount;
+    }
+    public LocalDate getInvoiceDate(){
+        return invoiceDate;
+    }
+    public void setInvoiceDate(LocalDate InvoiceDate ){
+        this.invoiceDate=invoiceDate;
+    }
