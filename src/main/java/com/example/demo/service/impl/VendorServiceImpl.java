@@ -8,20 +8,21 @@ import com.example.demo.service.VendorService;
 
 @Service
 public class VendorServiceImpl implements VendorService{
+
     @Autowired
-    private UserRepository userRepository;
+    private VendorRepository VendorRepository;
 
     @override
-    public User registerUser(User user){
-        return userRepository.save(user);
+    public Vendor cjreateVendor(Vendor vendor){
+        return VendorRepository.save(vendor);
     }
 
     @override
-    public User findByEmail(String email){
-        return userRepository.findByEmail(email);
+    public Vendor getVendor(Long vendorId){
+        return VendorRepository.findById(vendorId).orelse(null);
     }
     @override
-    public List<User> getAllUsers(){
-        return userRepository.findall();
+    public List<Vendor> getAllVendors(){
+        return VendorRepository.findAll();
     }
 }
