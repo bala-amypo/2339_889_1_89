@@ -27,5 +27,22 @@ public class Vendor{
     public void setId(Long id){
         this.id=id;
     }
-    public String getvendorName()
+    public String getVendorName(){
+        return vendorName;
+    }
+    public void setVendorName(){
+        this.vendorName=vendorName;
+    }
+    public String getContactEmail(){
+        return contactEmail;
+    }
+    public void setContactEmail(){
+        this.contactEmail=contactEmail;
+    }
+    public String getAddress(){
+        return contactEmail;
+    }
+    public void setContactEmail(){
+        this.contactEmail=contactEmail;
+    }
 }
