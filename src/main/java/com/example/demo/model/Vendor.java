@@ -13,5 +13,16 @@ public class Vendor{
     public class vendor(){
 
     }
-    public vendor(Long id,S)
+    public vendor(Long id,String vendorName,String contactEmail,String address,LocalDateTime createdAt){
+        this.id=id;
+        this.vendorName=vendorName;
+        this.contactEmail=contactEmail;
+        this.address=address;
+        this.createdAt=createdAt;
+    }
+
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long Id)
 }
