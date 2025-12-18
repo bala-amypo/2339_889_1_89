@@ -10,4 +10,5 @@ public class Vendor{
     private String contactEmail;
     private String address;
     private LocalDateTime createdAt;
+    pub
 }
