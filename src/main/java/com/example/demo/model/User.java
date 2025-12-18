@@ -59,6 +59,13 @@ public class User(){
     public String getuser(){
         return USER;
     }
-    public void setuser(String )
-
+    public void setuser(String USER){
+        this.USER=USER;
+    }
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+    public void setCreatedAt(LocalDateTime createdAt){
+        this.createdAt=createdAt;
+    }
 }
