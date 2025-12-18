@@ -30,19 +30,25 @@ public class Vendor{
     public String getVendorName(){
         return vendorName;
     }
-    public void setVendorName(){
+    public void setVendorName(String vendorName){
         this.vendorName=vendorName;
     }
     public String getContactEmail(){
         return contactEmail;
     }
-    public void setContactEmail(){
+    public void setContactEmail(String contactEmail){
         this.contactEmail=contactEmail;
     }
     public String getAddress(){
-        return contactEmail;
+        return address;
     }
-    public void setContactEmail(){
-        this.contactEmail=contactEmail;
+    public void setAddress(String address){
+        this.address=address;
+    }
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+    public void setCreatedAt(LocalDateTime createdAt){
+        this.createdAt=createdAt;
     }
 }
