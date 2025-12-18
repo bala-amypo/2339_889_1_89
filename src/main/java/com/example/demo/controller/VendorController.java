@@ -23,8 +23,8 @@ public class VendorController {
         return vendorService.getAllVendors();
     }
 
-    @GetMapping("/{email}")
-    public User getUserByEmail(@PathVariable String email){
-        return userService.findByEmail(email);
+    @GetMapping("/{vendorId}")
+    public Vendor getVendor(@PathVariable Long vendorId){
+        return vendorService.getVendor(vendorId);
     }
 }
