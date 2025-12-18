@@ -41,10 +41,16 @@ public class CategorizationRule(){
         this.keyword=keyword;
     }
     public Integer getPriority(){
-        return keyword;
+        return priority;
     }
     public void setPriority(Integer priority){
-        this.keyword=keyword;
+        this.priority=priority;
+    }
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+    public void setCreatedAt(LocalDateTime createdAt){
+        this.createdAt=createdAt;
     }
 }
 
