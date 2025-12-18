@@ -10,7 +10,7 @@ public class Vendor{
     private String contactEmail;
     private String address;
     private LocalDateTime createdAt;
-    public class vendor(){
+    public vendor(){
 
     }
     public vendor(Long id,String vendorName,String contactEmail,String address,LocalDateTime createdAt){
