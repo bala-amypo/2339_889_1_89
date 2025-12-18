@@ -72,11 +72,17 @@ public class Invoice(){
     public void setCategory(Category category){
         this.category=category;
     }
-    public  User getUploadedBy(){
-        return category;
+    public User getUploadedBy(){
+        return uploadedBy;
     }
-    public void set User uploadedBy(Category category){
-        this.category=category;
+    public void setUploadedBy(User uploadedBy){
+        this.uploadedBy=uploadedBy;
     }
-
+    public LocalDateTime getUploadedAt(){
+        return uploadedAt;
+    }
+    public void setUploadedAt(LocalDateTime uploadedAt){
+        this.uploadedAt=uploadedAt;
+    }
+}
      
