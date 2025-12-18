@@ -5,10 +5,13 @@ import jakarta.validation.constranints.*;
 @Table(name="Student")
 
 public class Vendor{
-    private long id;
+    private Long id;
     private String vendorName;
     private String contactEmail;
     private String address;
     private LocalDateTime createdAt;
-    pub
+    public class vendor(){
+
+    }
+    public vendor(Long id,S)
 }
