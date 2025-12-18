@@ -60,3 +60,23 @@ public class Invoice(){
     public void setInvoiceDate(LocalDate InvoiceDate ){
         this.invoiceDate=invoiceDate;
     }
+    public String getDescription(){
+        return description;
+    }
+    public void setDescription(String description){
+        this.description=description;
+    }
+    public Category getCategory(){
+        return category;
+    }
+    public void setCategory(Category category){
+        this.category=category;
+    }
+    public  User getUploadedBy(){
+        return category;
+    }
+    public void set User uploadedBy(Category category){
+        this.category=category;
+    }
+
+     
