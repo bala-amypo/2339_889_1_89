@@ -13,17 +13,17 @@ public class CategoryServiceImpl implements CategoryService{
     private CategoryRepository categoryRepository;
 
     @override
-    public Vendor createVendor(Vendor vendor){
-        return vendorRepository.save(vendor);
+    public Category createCategory(Category category){
+        return categoryRepository.save(category);
     }
 
     @override
-    public Vendor getVendor(Long vendorId){
-        return vendorRepository.findById(vendorId).orElse(null);
+    public Category getCategory(Long id){
+        return categoryRepository.findById(id).orElse(null);
     }
 
     @override
-    public List<Vendor> getAllVendors(){
-        return VendorRepository.findAll();
+    public List<Category> getAllCategories(){
+        return CategoryRepository.findAll();
     }
 }
