@@ -8,6 +8,18 @@ import com.example.demo.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
+    @Autowired
+    private UserRepository userRepository;
+
+    @override
+    public User registerUser(User user){
+        return userRepository.save(user);
+    }
+
+    @override
+    public User findByEmail(String email){
+        return userRepository.save(user);
+    }
     
 
 }
