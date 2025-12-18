@@ -14,9 +14,19 @@ import com.example.demo.service.CategorizationRuleService;
 public class CategorizationRuleServiceImpl implements CategorizationRuleService {
     
     @Autowired
-    private CategorizationRuleRepository; invoiceRepository;
+    private CategorizationRuleRepository ruleRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private CategoryRepository categoryRepository;
 
+    @Override
+    public CategorizationRule createRule(Long categoryId,CategorizationRule rule) {
+        rule.setCategory(categoryRepository.findById(categoryId).orElse(null));
+        return ruleRepository.save(rule);
+    }
+
+    @override
+    public List<CategorizationRule> getRulesByCategory(Long categoryId){
+
+    }
 }
