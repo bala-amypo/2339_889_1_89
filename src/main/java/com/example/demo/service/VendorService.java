@@ -3,8 +3,7 @@ import java.util.List;
 import com.example.demo.entity.Vendor;
 
 public interface VendorService {
-    Student insertStudent(Student st);
-    List<Student> getAllStudents();
-    Optional<Student> getOneStudent(Long id);
-    void deleteStudent(Long id);
+    Vendor createVendor(Vendor vendor);
+    Vendor getVendor(Long vendorId);
+    List<Vendor> getAllVendor();
 }   
