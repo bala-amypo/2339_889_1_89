@@ -26,11 +26,16 @@ public class Category(){
     public void setId(Long id){
         this.id=id;
     }
-    public Long getcategoryName(){
+    public String getCategoryName(){
         return categoryName;
     }
-    public void setCategoryName(Long CategoryName){
+    public void setCategoryName(String CategoryName){
         this.categoryName=categoryName;
     }
-}
+    public String getDescription(){
+        return description;
+    }
+    public void setDescription(String description){
+        this.description=description;
+    }
 }
