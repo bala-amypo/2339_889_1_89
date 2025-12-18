@@ -3,24 +3,24 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import com.example.demo.entity.User;
-import com.example.demo.service.UserService;
+import com.example.demo.entity.Vendor;
+import com.example.demo.service.VendorService;
 
 @RestController
-@RequestMapping("/api/users")
-@Tag(name = "Users Endpoints")
-public class UserController {
+@RequestMapping("/api/vendors")
+@Tag(name = "Vendors Endpoints")
+public class VendorController {
 
     @Autowired
-    private UserService userService;
+    private VendorService vendorService;
 
-    @PostMapping("/register")
-    public User registerUser(@RequestBody User user){
-        return userService.registerUser(user);
+    @PostMapping
+    public Vendor createVendor(@RequestBody Vendor vendor){
+        return vendorService.createVendor(vendor);
     }
-    @GetMapping("/all")
-    public List<User> getAllUsers(){
-        return userService.getAllUsers();
+    @GetMapping
+    public List<Vendor> getAllVendors(){
+        return vendorService.getAllVendors();
     }
 
     @GetMapping("/{email}")
