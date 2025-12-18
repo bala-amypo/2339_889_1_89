@@ -4,5 +4,7 @@ import com.example.demo.entity.Invoice;
 
 public interface InvoiceService{
     Invoice unloadInvoice(long userId,Long vendorId,Invoice invoice);
-    Invoice Categorized
+    Invoice CategorizeInvoice(Long invoiceId);
+    List<Invoice> getInvoicesByUser(Long userId);
+    Invoice getInvoice(Long invoiceId);
 }
