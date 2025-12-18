@@ -16,19 +16,15 @@ public class UserController {
 
     @PostMapping("/register")
     public User registerUser(@RequestBody User user){
-        return (st);
+        return userService.registerUser(user);
     }
-    @GetMapping("/get")
-    public List<StudentEntity> getdata(){
-        return src.retdata();
+    @GetMapping("/all")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
     }
 
-    @GetMapping("/getid/{id}")
-    public StudentEntity getIdVal(int id){
-        return src.id(id);
-    }
-    @PutMapping("/update/{id}")
-    public StudentEntity updateId(@PathVariable int id,@RequestBody StudentEntity st){
-        return src.updid(id,st);
+    @GetMapping("/{email}")
+    public User getUserByEmail(@PathVariable String email){
+        return userService.findByEmail(email);
     }
 }
