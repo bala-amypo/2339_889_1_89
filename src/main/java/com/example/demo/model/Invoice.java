@@ -7,7 +7,9 @@ import jakarta.validation.constranints.*;
 public class Invoice{
     private Long id;
     private Vendor vendor;
+    @Column (unique=true)
     private String invoiceNumber;
+    @Min(0)
     private Double amount;
     private LocalDate invoiceDate;
     private String description;
@@ -21,9 +23,7 @@ public class Invoice{
     public Invoice(Long id,Vendor vendor,String invoiceNumber, Double amount,LocalDate invoiceDate,String description, Category category, User uploadedBy,LocalDateTime uploadedAt){
         this.id=id;
         this.vendor=vendor;
-        @Column (unique=true)
         this.invoiceNumber=invoiceNumber;
-        @Min(0)
         this.amount=amount;
         this.invoiceDate=invoiceDate;
         this.description=description;

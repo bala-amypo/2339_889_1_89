@@ -6,6 +6,7 @@ import jakarta.validation.constranints.*;
 
 public class Vendor{
     private Long id;
+    @Column(unique=true)
     private String vendorName;
     private String contactEmail;
     private String address;
@@ -15,7 +16,6 @@ public class Vendor{
     }
     public Vendor(Long id,String vendorName,String contactEmail,String address,LocalDateTime createdAt){
         this.id=id;
-        @Column(unique=true)
         this.vendorName=vendorName;
         @Email(message="Invalid fromat")
         this.contactEmail=contactEmail;

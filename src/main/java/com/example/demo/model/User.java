@@ -7,10 +7,13 @@ import jakarta.validation.constranints.*;
 public class User{
     private Long id;
     private String fullName;
+    @Column(unique=true)
     private String email;
+    @size(min=8)
     private String password;
     private String ADMIN;
     private String USER;
+    @Generate dValue(strategy=GeneratioType.AUTO)
     private LocalDateTime createdAt;
 
     public User(){
@@ -19,13 +22,10 @@ public class User{
     public User(Long id,String fullName,String email,String password,String ADMIN,String USER,LocalDateTime createdAt){
         this.id=id;
         this.fullName=fullname;
-        @Column(unique=true)
         this.email=email;
-        @size(min=8)
         this.password=password;
         this.ADMIN=ADMIN;
         this.USER=USER;
-        @GeneratedValue(strategy=GeneratioType.AUTO)
         this.createAt=createdAt;
     }
 
