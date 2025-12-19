@@ -16,7 +16,9 @@ public class CategorizationRuleServiceImpl implements CategorizationRuleService 
     @Autowired
     private CategorizationRuleRepository rep;
     public 
-    @Override CategorizationRuleServiceImpl ()
+    @Override CategorizationRuleServiceImpl (CategorizationRuleRepository rep){
+        this.rep=rep;
+    }
     public CategorizationRule createRule(Long categoryId,CategorizationRule rule) {
         rule.setCategory(categoryRepository.findById(categoryId).orElse(null));
         return rep.save(rule);
@@ -24,7 +26,7 @@ public class CategorizationRuleServiceImpl implements CategorizationRuleService 
 
     @Override
     public List<CategorizationRule> getRulesByCategory(Long categoryId){
-        return ruleRepository.findByCategoryId(categoryId);
+        return rep.findByCategoryId(categoryId);
     }
 
     @Override
