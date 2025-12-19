@@ -3,7 +3,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-@Invoice
 @Table(name="Student")
 
 public class Invoice{
