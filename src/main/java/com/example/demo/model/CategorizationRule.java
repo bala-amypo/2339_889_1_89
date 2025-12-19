@@ -2,7 +2,7 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
-@Model
+@Entity
 @Table(name="Student")
 
 public class CategorizationRule{
