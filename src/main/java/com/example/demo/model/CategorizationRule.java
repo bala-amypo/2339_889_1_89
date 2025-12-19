@@ -1,6 +1,6 @@
 package com.example.demo.model;
 import jakarta.persistence.*;
-import jakarta.validation.constranints.*;
+import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
 @CategorizationRule
 @Table(name="Student")
