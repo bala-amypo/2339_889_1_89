@@ -13,5 +13,7 @@ public class CategorizationRuleController{
     @Autowired
     private CategorizationRuleService ruleService ;
 
+    @PostMapping("/category/{categoryId}")
     
+
 }
