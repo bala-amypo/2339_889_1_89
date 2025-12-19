@@ -11,7 +11,7 @@ public class Invoice{
     private Vendor vendor;
     @Column (unique=true)
     private String invoiceNumber;
-    @Min(0)
+    @Positive
     private Double amount;
     private LocalDate invoiceDate;
     private String description;

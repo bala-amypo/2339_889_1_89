@@ -10,7 +10,7 @@ public class User{
     private String fullName;
     @Column(unique=true)
     private String email;
-    @size(min=8)
+    @Size(min=8)
     private String password;
     private String ADMIN;
     private String USER;
