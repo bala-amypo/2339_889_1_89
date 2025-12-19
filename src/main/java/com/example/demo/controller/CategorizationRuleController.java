@@ -17,20 +17,17 @@ public class CategorizationRuleController{
     public CategorizationRule createRule(
         @PathVariable Long categoryId,
         @RequestBody CategorizationRule rule){
-            return ruleService.createRule(categoryId,rule);
-        }
+       return ruleService.createRule(categoryId,rule);
+    }
 
-        @GetMapping("/category/{categoryId}")
-        public List<CategorizationRule> getRulesByCategory(
-            @PathVariable Long categoryId){
-                return ruleService.getRulesByCategory(categoryId);
-            }
+    @GetMapping("/category/{categoryId}")
+    public List<CategorizationRule> getRulesByCategory(
+        @PathVariable Long categoryId){
+        return ruleService.getRulesByCategory(categoryId);
+    }
 
-            @DeleteMapping("/{ruled}")
-            public void deleteRule(@PathVariable Long ruleId){
-                return ruleService.deleteRule(ruled);
-            }
-        )
-    )
-
+    @DeleteMapping("/{ruled}")
+    public void deleteRule(@PathVariable Long ruleId){
+       return ruleService.deleteRule(ruled);
+    }
 }
