@@ -2,6 +2,7 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
+@Model
 @Table(name="Student")
 
 public class Vendor{
@@ -11,7 +12,7 @@ public class Vendor{
     @Email(message="Invalid fromat")
     private String contactEmail;
     private String address;
-    @GeneratedValue(strategy=GeneratioType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private LocalDateTime createdAt;
     public Vendor(){
 
