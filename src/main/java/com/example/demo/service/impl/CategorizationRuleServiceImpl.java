@@ -14,15 +14,12 @@ import com.example.demo.service.CategorizationRuleService;
 public class CategorizationRuleServiceImpl implements CategorizationRuleService {
     
     @Autowired
-    private CategorizationRuleRepository ruleRepository;
-
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Override
+    private CategorizationRuleRepository rep;
+    public 
+    @Override CategorizationRuleServiceImpl ()
     public CategorizationRule createRule(Long categoryId,CategorizationRule rule) {
         rule.setCategory(categoryRepository.findById(categoryId).orElse(null));
-        return ruleRepository.save(rule);
+        return rep.save(rule);
     }
 
     @Override
