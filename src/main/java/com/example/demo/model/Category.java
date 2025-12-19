@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constranints.*;
+import java.time.LocalDateTime;
 @Category
 @Table(name="Student")
 
@@ -29,7 +30,7 @@ public class Category{
     public String getCategoryName(){
         return categoryName;
     }
-    public void setCategoryName(String CategoryName){
+    public void setCategoryName(String categoryName){
         this.categoryName=categoryName;
     }
     public String getDescription(){
@@ -38,4 +39,11 @@ public class Category{
     public void setDescription(String description){
         this.description=description;
     }
+    public LocalDateTime getCreatA(){
+        return description;
+    }
+    public void setDescription(String description){
+        this.description=description;
+    }
+
 }
