@@ -25,6 +25,11 @@ public class InvoiceController{
     public Invoice  categorizeInvoice(@PathVariable Long invoiceId){
         return invoiceService.categorizeInvoice(invoiceId);
     }
+
+    @GetMapping("/user/{userId}")
+    public List<Invoice> getInvoicesByUser(@PathVariable Long userId){
+        return invoiceService.getInvoiceByUser(invoiceId);
+    }
     }
 
 }
