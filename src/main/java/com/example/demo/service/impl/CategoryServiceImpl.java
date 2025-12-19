@@ -12,17 +12,17 @@ public class CategoryServiceImpl implements CategoryService{
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @override
+    @Override
     public Category createCategory(Category category){
         return categoryRepository.save(category);
     }
 
-    @override
+    @Override
     public Category getCategory(Long id){
         return categoryRepository.findById(id).orElse(null);
     }
 
-    @override
+    @Override
     public List<Category> getAllCategories(){
         return CategoryRepository.findAll();
     }

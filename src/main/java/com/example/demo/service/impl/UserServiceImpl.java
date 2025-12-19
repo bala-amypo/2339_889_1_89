@@ -11,16 +11,16 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
 
-    @override
+    @Override
     public User registerUser(User user){
         return userRepository.save(user);
     }
 
-    @override
+    @Override
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }
-    @override
+    @Override
     public List<User> getAllUsers(){
         return userRepository.findall();
     }

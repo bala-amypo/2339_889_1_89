@@ -11,18 +11,20 @@ public class VendorServiceImpl implements VendorService{
 
     @Autowired
     private VendorRepository vendorRepository;
+    public VendorServiceImpl(VendorServiceRepository rep){
+    this.rep=rep;
 
-    @override
+    @Override
     public Vendor createVendor(Vendor vendor){
         return vendorRepository.save(vendor);
     }
 
-    @override
+    @Override
     public Vendor getVendor(Long vendorId){
         return vendorRepository.findById(vendorId).orElse(null);
     }
 
-    @override
+    @Override
     public List<Vendor> getAllVendors(){
         return VendorRepository.findAll();
     }
