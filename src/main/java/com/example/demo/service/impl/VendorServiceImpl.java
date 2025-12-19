@@ -11,9 +11,9 @@ public class VendorServiceImpl implements VendorService{
 
     @Autowired
     private VendorRepository vendorRepository;
-    public VendorServiceImpl(VendorServiceRepository rep){
-    this.rep=rep;
-
+    public VendorServiceImpl(VendorServiceRepository vendorRepository){
+        this.vendorRepository=vendorRepository;
+    }
     @Override
     public Vendor createVendor(Vendor vendor){
         return vendorRepository.save(vendor);
