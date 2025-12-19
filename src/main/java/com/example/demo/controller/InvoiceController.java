@@ -11,7 +11,7 @@ import com.example.demo.service.InvoiceService;
 @Tag(name = "Invoice Endpoints")
 public class InvoiceController{
     @Autowired
-    private InvoiceService invoiceService ;
+    InvoiceService invoiceService ;
 
     @PostMapping("/upload/{userId}/{vendorId}")
     public Invoice uploadInvoice(
