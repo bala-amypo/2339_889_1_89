@@ -21,7 +21,16 @@ public class CategorizationRuleController{
         }
 
         @GetMapping("/category/{categoryId}")
-        public List<CategorizationRule> getRulesByCategory()
+        public List<CategorizationRule> getRulesByCategory(
+            @PathVariable Long categoryId){
+                return ruleService.getRulesByCategory(categoryId);
+            }
+
+            @DeleteMapping("/{ruled}")
+            public void deleteRule(@PathVariable Long ruleId){
+                return ruleService.deleteRule(ruled);
+            }
+        )
     )
 
 }
