@@ -19,10 +19,13 @@ public class User{
     public User(Long id,String fullName,String email,String password,String ADMIN,String USER,LocalDateTime createdAt){
         this.id=id;
         this.fullName=fullname;
+        @Column(unique=true)
         this.email=email;
+        @size(min=8)
         this.password=password;
         this.ADMIN=ADMIN;
         this.USER=USER;
+        @Generate dValue(strategy=Generator
         this.createAt=createdAt;
     }
 
