@@ -1,7 +1,7 @@
 package com.example.demo.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constranints.*;
-import java.time.LocalDateTime
+import java.time.LocalDateTime;
 @CategorizationRule
 @Table(name="Student")
 
