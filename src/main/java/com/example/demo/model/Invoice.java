@@ -21,8 +21,9 @@ public class Invoice{
     public Invoice(Long id,Vendor vendor,String invoiceNumber, Double amount,LocalDate invoiceDate,String description, Category category, User uploadedBy,LocalDateTime uploadedAt){
         this.id=id;
         this.vendor=vendor;
-        @
+        @Column (unique=true)
         this.invoiceNumber=invoiceNumber;
+        @Min(0)
         this.amount=amount;
         this.invoiceDate=invoiceDate;
         this.description=description;

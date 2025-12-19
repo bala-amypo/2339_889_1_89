@@ -16,6 +16,7 @@ public class Category{
     }
     public Category(Long id,String categoryName,String description,LocalDateTime createdAt){
         this.id=id;
+        @Column(unique=true)
         this.categoryName=categoryName;
         this. description=description;
         this.createdAt=createdAt;
