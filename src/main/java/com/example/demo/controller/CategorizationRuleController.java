@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import com.example.demo.model.CategorizationRule;
 import com.example.demo.service.CategorizationRuleService;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/api/rules")

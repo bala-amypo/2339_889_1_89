@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import com.example.demo.model.Invoice;
 import com.example.demo.service.InvoiceService;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/api/invoices")

@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import com.example.demo.model.Category;
 import com.example.demo.service.CategoryService;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/api/categories")

@@ -22,7 +22,7 @@ public class User{
     }
     public User(Long id,String fullName,String email,String password,String ADMIN,String USER,LocalDateTime createdAt){
         this.id=id;
-        this.fullName=fullname;
+        this.fullName=fullName;
         this.email=email;
         this.password=password;
         this.ADMIN=ADMIN;
