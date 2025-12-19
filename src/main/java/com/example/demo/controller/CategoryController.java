@@ -3,7 +3,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import com.example.demo.entity.Category;
+import com.example.demo.model.Category;
 import com.example.demo.service.CategoryService;
 
 @RestController

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.CategorizationRule;
+import com.example.demo.model.CategorizationRule;
 import com.example.demo.repository.CategorizationRuleRepository;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.service.CategorizationRuleService;
