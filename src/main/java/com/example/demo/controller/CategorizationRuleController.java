@@ -11,7 +11,7 @@ import com.example.demo.service.CategorizationRuleService;
 @Tag(name = "Categorization Rule Endpoints")
 public class CategorizationRuleController{
     @Autowired
-    private CategorizationRuleService ruleService ;
+    CategorizationRuleService ruleService ;
 
     @PostMapping("/category/{categoryId}")
     public CategorizationRule createRule(
@@ -28,6 +28,6 @@ public class CategorizationRuleController{
 
     @DeleteMapping("/{ruled}")
     public void deleteRule(@PathVariable Long ruleId){
-       return ruleService.deleteRule(ruled);
+       return ruleService.deleteRule(ruleId);
     }
 }

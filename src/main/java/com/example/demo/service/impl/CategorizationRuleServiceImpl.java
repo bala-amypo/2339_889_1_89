@@ -31,6 +31,6 @@ public class CategorizationRuleServiceImpl implements CategorizationRuleService 
 
     @Override
     public void deleteRule(Long ruleId){
-        ruleRepository.deleteById(ruleId);
+        rep.deleteById(ruleId);
     }
 }
