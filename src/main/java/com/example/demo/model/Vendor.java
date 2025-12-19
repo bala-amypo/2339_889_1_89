@@ -2,8 +2,8 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
-@Model
-@Table(name="Student")
+@Entity
+@Table(name="vendors")
 
 public class Vendor{
     private Long id;
