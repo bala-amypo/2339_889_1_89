@@ -13,7 +13,7 @@ public class User{
     private String password;
     private String ADMIN;
     private String USER;
-    @Generated Value(strategy=GeneratioType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private LocalDateTime createdAt;
 
     public User(){
