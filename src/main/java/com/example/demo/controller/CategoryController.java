@@ -7,7 +7,7 @@ import com.example.demo.entity.Category;
 import com.example.demo.service.CategoryService;
 
 @RestController
-@RequestMapping("/api/Categories")
+@RequestMapping("/api/categories")
 @Tag(name = "Categories Endpoints")
 public class CategoryController {
 
