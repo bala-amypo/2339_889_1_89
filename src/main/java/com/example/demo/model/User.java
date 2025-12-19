@@ -27,7 +27,7 @@ public class User{
         this.password=password;
         this.ADMIN=ADMIN;
         this.USER=USER;
-        this.createAt=createdAt;
+        this.createdAt=createdAt;
     }
 
     public Long getId(){
