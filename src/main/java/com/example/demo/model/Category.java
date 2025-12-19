@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 public class Category{
     private Long id;
+    @Column(unique=true)
     private String categoryName;
     private String description;
     private LocalDateTime createdAt;
@@ -16,7 +17,6 @@ public class Category{
     }
     public Category(Long id,String categoryName,String description,LocalDateTime createdAt){
         this.id=id;
-        @Column(unique=true)
         this.categoryName=categoryName;
         this. description=description;
         this.createdAt=createdAt;
