@@ -12,7 +12,7 @@ import com.example.demo.service.CategoryService;
 public class CategoryController {
 
     @Autowired
-    private CategoryService categoryService;
+    CategoryService categoryService;
 
     @PostMapping
     public Category createCategory(@RequestBody Category category){
