@@ -13,6 +13,7 @@ public class CategoryServiceImpl implements CategoryService{
     private CategoryRepository categoryRepository;
     public CategoryServiceImpl(CategoryRepository categoryRepository){
         this.categoryRepository=categoryRepository;
+    }
     @Override
     public Category createCategory(Category category){
         return categoryRepository.save(category);
