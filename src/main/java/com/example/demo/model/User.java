@@ -25,7 +25,7 @@ public class User{
         this.password=password;
         this.ADMIN=ADMIN;
         this.USER=USER;
-        @Generate dValue(strategy=Generator
+        @GeneratedValue(strategy=GeneratioType.AUTO)
         this.createAt=createdAt;
     }
 

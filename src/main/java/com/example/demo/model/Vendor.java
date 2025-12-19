@@ -15,9 +15,12 @@ public class Vendor{
     }
     public Vendor(Long id,String vendorName,String contactEmail,String address,LocalDateTime createdAt){
         this.id=id;
+        @Column(unique=true)
         this.vendorName=vendorName;
+        @Email(message="Invalid fromat")
         this.contactEmail=contactEmail;
         this.address=address;
+        @GeneratedValue(strategy=GeneratioType.AUTO)
         this.createdAt=createdAt;
     }
 
