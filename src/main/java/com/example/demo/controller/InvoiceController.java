@@ -19,8 +19,9 @@ public class InvoiceController{
         @pathVariable Long vendorId,
         @RequestBody Invoice invoice){
 
-        return invoiceService.uploadInvoice(userId,)
+        return invoiceService.uploadInvoice(userId,vendorId,invoice);
         }
+    @PostMapping("/categorize/{invoiceId}")
     }
 
 }
