@@ -28,8 +28,12 @@ public class InvoiceController{
 
     @GetMapping("/user/{userId}")
     public List<Invoice> getInvoicesByUser(@PathVariable Long userId){
-        return invoiceService.getInvoiceByUser(invoiceId);
+        return invoiceService.getInvoiceByUser(userId);
     }
+
+    @GetMapping("/{invoiceId}")
+    public Invoice getInvoice(@PathVariable Long invoiceId){
+        return invoiceService.getInvoice(invoiceId);
     }
 
 }
