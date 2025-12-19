@@ -3,8 +3,8 @@ import java.util.List;
 import org.springfraework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.model.Vendor;
-import com.example.demo.model.repository.VendorRepository;
-import com.example.demo.model.VendorService;
+import com.example.demo.repository.VendorRepository;
+import com.example.demo.service.VendorService;
 
 @Service
 public class VendorServiceImpl implements VendorService{
