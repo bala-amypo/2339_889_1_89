@@ -4,7 +4,7 @@ import jakarta.validation.constranints.*;
 @CategorizationRule
 @Table(name="Student")
 
-public class CategorizationRule(){
+public class CategorizationRule{
     private Long id;
     private Category category;
     private String keyword;

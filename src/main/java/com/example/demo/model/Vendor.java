@@ -10,10 +10,10 @@ public class Vendor{
     private String contactEmail;
     private String address;
     private LocalDateTime createdAt;
-    public vendor(){
+    public Vendor(){
 
     }
-    public vendor(Long id,String vendorName,String contactEmail,String address,LocalDateTime createdAt){
+    public Vendor(Long id,String vendorName,String contactEmail,String address,LocalDateTime createdAt){
         this.id=id;
         this.vendorName=vendorName;
         this.contactEmail=contactEmail;

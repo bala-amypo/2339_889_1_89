@@ -4,7 +4,7 @@ import jakarta.validation.constranints.*;
 @Invoice
 @Table(name="Student")
 
-public class Invoice(){
+public class Invoice{
     private Long id;
     private Vendor vendor;
     private String invoiceNumber;

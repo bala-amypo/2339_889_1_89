@@ -4,7 +4,7 @@ import jakarta.validation.constranints.*;
 @Category
 @Table(name="Student")
 
-public class Category(){
+public class Category{
     private Long id;
     private String categoryName;
     private String description;

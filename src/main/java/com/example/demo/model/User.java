@@ -4,7 +4,7 @@ import jakarta.validation.constranints.*;
 @User
 @Table(name="Student")
 
-public class User(){
+public class User{
     private Long id;
     private String fullName;
     private String email;
