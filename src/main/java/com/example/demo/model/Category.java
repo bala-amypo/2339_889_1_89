@@ -39,11 +39,11 @@ public class Category{
     public void setDescription(String description){
         this.description=description;
     }
-    public LocalDateTime getCreatA(){
-        return description;
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
     }
-    public void setDescription(String description){
-        this.description=description;
+    public void setCreatedAt( LocalDateTime getCreatedAt){
+        this.createdAt=createdAt;
     }
 
 }
