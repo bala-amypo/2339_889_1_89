@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name="user")
 
+
 public class User{
     private Long id;
     private String fullName;
