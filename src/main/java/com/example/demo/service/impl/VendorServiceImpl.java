@@ -7,25 +7,27 @@ import com.example.demo.repository.VendorRepository;
 import com.example.demo.service.VendorService;
 
 @Service
-public class VendorServiceImpl implements VendorService{
+public class VendorServiceImpl implements VendorService {
+
+    private final VendorRepository vendorRepository;
 
     @Autowired
-    private VendorRepository vendorRepository;
-    public VendorServiceImpl(VendorServiceRepository vendorRepository){
-        this.vendorRepository=vendorRepository;
+    public VendorServiceImpl(VendorRepository vendorRepository) {
+        this.vendorRepository = vendorRepository;
     }
+
     @Override
-    public Vendor createVendor(Vendor vendor){
+    public Vendor createVendor(Vendor vendor) {
         return vendorRepository.save(vendor);
     }
 
     @Override
-    public Vendor getVendor(Long vendorId){
+    public Vendor getVendor(Long vendorId) {
         return vendorRepository.findById(vendorId).orElse(null);
     }
 
     @Override
-    public List<Vendor> getAllVendors(){
+    public List<Vendor> getAllVendor() {
         return vendorRepository.findAll();
     }
 }
