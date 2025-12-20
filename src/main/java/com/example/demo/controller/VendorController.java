@@ -22,7 +22,7 @@ public class VendorController {
     }
     @GetMapping
     public List<Vendor> getAllVendors(){
-        return vendorService.getAllVendors();
+        return vendorService.getAllVendor();
     }
 
     @GetMapping("/{vendorId}")
