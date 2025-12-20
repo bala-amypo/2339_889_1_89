@@ -17,12 +17,12 @@ public class InvoiceController{
 
     @PostMapping("/upload/{userId}/{vendorId}")
     public Invoice uploadInvoice(
-        @pathVariable Long userId,
-        @pathVariable Long vendorId,
-        @RequestBody Invoice invoice){
+    @PathVariable Long userId,
+    @PathVariable Long vendorId,
+    @RequestBody Invoice invoice) {
+    return invoiceService.uploadInvoice(userId, vendorId, invoice);
+    }
 
-        return invoiceService.uploadInvoice(userId,vendorId,invoice);
-        }
     @PostMapping("/categorize/{invoiceId}")
     public Invoice  categorizeInvoice(@PathVariable Long invoiceId){
         return invoiceService.categorizeInvoice(invoiceId);
