@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
@@ -15,8 +15,10 @@ public class User {
     private String email;
     private String password;
     private String role;
-
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    // getters & setters
+    // ✅ GETTERS & SETTERS
+    public Long getId() { return id; }
+    public String getEmail() { return email; }
+    public void setRole(String role) { this.role = role; }
 }
