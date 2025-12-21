@@ -18,7 +18,10 @@ public class User{
     private String ADMIN;
     private String USER;
     private LocalDateTime createdAt;
-
+    
+    @ManyToOne(fetch = FetchType.LAZY)  
+    @JoinColumn(name = "category_id")   
+    private Category category;
     public User(){
 
     }

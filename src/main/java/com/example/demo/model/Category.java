@@ -2,6 +2,7 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
+import java.util.*;
 @Entity
 @Table(name="Student")
 
@@ -16,6 +17,8 @@ public class Category{
     
     private LocalDateTime createdAt;
     
+    @OneToMany(mappedBy = "category")
+    private List<User> users;
     public Category(){
 
     }
