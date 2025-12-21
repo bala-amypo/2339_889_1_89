@@ -31,7 +31,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
     @Override
     public Invoice uploadInvoice(Long userId, Long vendorId, Invoice invoice) {
-        invoice.setUser(userRepository.findById(userId).orElse(null));
+        invoice.setUSER(userRepository.findById(userId).orElse(null));
         invoice.setVendor(vendorRepository.findById(vendorId).orElse(null));
         return invoiceRepository.save(invoice);
     }
