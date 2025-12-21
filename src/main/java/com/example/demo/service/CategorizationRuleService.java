@@ -5,7 +5,9 @@ import java.util.List;
 
 public interface CategorizationRuleService {
 
-    CategorizationRule saveRule(CategorizationRule rule);
+    CategorizationRule createRule(Long categoryId, CategorizationRule rule);
+
+    List<CategorizationRule> getRulesByCategory(Long categoryId);
 
     List<CategorizationRule> getAllRules();
 
