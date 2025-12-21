@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 @Table(name="Student")
 
 public class Category{
+    @Id
     private Long id;
     @Column(unique=true)
     private String categoryName;

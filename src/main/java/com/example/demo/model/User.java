@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 
 public class User{
+    @Id
     private Long id;
     private String fullName;
     @Column(unique=true)

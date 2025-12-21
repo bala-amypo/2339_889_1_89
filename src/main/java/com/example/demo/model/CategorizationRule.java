@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 @Table(name="Student")
 
 public class CategorizationRule{
+    @Id
     private Long id;
     private Category category;
     private String keyword;

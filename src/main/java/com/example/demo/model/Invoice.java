@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 @Table(name="Student")
 
 public class Invoice{
+    @Id
     private Long id;
     private Vendor vendor;
     @Column (unique=true)

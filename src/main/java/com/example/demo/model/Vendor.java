@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 @Table(name="vendors")
 
 public class Vendor{
+    @Id
     private Long id;
     @Column(unique=true)
     private String vendorName;
