@@ -1,53 +1,47 @@
-package com.example.demo.service.impl;
+package com.example.demo.model;
 
-import com.example.demo.model.*;
-import com.example.demo.repository.*;
-import com.example.demo.service.CategorizationRuleService;
-import com.example.demo.exception.ResourceNotFoundException;
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
-import java.util.List;
+@Entity
+public class CategorizationRule {
 
-public class CategorizationRuleServiceImpl implements CategorizationRuleService {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private final CategorizationRuleRepository ruleRepo;
-    private final CategoryRepository categoryRepo;
+    @ManyToOne
+    private Category category;
 
-    public CategorizationRuleServiceImpl(
-            CategorizationRuleRepository ruleRepo,
-            CategoryRepository categoryRepo
-    ) {
-        this.ruleRepo = ruleRepo;
-        this.categoryRepo = categoryRepo;
+    private String keyword;
+    private String matchType;
+    private Integer priority;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    // ---------- GETTERS ----------
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public CategorizationRule createRule(Long categoryId, CategorizationRule rule) {
-
-        Category category = categoryRepo.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
-
-        rule.setCategory(category);
-        return ruleRepo.save(rule);
+    public Category getCategory() {
+        return category;
     }
 
-    @Override
-    public List<CategorizationRule> getRulesByCategory(Long categoryId) {
-
-        Category category = categoryRepo.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
-
-        return ruleRepo.findAll()
-                .stream()
-                .filter(r -> r.getCategory().getId().equals(category.getId()))
-                .toList();
+    public String getKeyword() {
+        return keyword;
     }
 
-    @Override
-    public void deleteRule(Long ruleId) {
+    public String getMatchType() {
+        return matchType;
+    }
 
-        CategorizationRule rule = ruleRepo.findById(ruleId)
-                .orElseThrow(() -> new ResourceNotFoundException("Rule not found"));
+    public Integer getPriority() {
+        return priority;
+    }
 
-        ruleRepo.delete(rule);
+    // ---------- SETTERS ----------
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
