@@ -7,7 +7,9 @@ public interface CategoryService {
 
     Category createCategory(Category category);
 
-    Category getCategory(Long id);
-
     List<Category> getAllCategories();
+
+    Category getCategoryById(Long id);
+
+    void deleteCategory(Long id);
 }
