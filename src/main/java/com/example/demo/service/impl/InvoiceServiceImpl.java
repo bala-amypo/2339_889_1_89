@@ -43,7 +43,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     public List<Invoice> getInvoiceByUser(Long userId) {
-        return invoiceRepository.findByUserId(userId);
+        return invoiceRepository.findById(userId);
     }
 
     @Override
