@@ -1,9 +1,13 @@
 package com.example.demo.service;
-import java.util.*;
-import com.example.demo.model.User;
 
-public interface UserService{
+import com.example.demo.model.User;
+import java.util.List;
+
+public interface UserService {
+
     User registerUser(User user);
-    Optional<User> findByEmail(String email);
+
+    User findByEmail(String email);
+
     List<User> getAllUsers();
 }
