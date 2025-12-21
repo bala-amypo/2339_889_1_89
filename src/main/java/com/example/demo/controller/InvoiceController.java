@@ -15,13 +15,13 @@ public class InvoiceController{
     @Autowired
     InvoiceService invoiceService ;
 
-    @PostMapping("/upload/{userId}/{vendorId}")
-    public Invoice uploadInvoice(
-    @PathVariable Long userId,
-    @PathVariable Long vendorId,
-    @RequestBody Invoice invoice) {
-    return invoiceService.uploadInvoice(userId, vendorId, invoice);
-    }
+    // @PostMapping("/upload/{userId}/{vendorId}")
+    // public Invoice uploadInvoice(
+    // @PathVariable Long userId,
+    // @PathVariable Long vendorId,
+    // @RequestBody Invoice invoice) {
+    // return invoiceService.uploadInvoice(userId, vendorId, invoice);
+    // }
 
     @PostMapping("/categorize/{invoiceId}")
     public Invoice  categorizeInvoice(@PathVariable Long invoiceId){

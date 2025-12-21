@@ -29,12 +29,12 @@ public class InvoiceServiceImpl implements InvoiceService {
     public InvoiceServiceImpl(UserRepository userRepository){
         this.userRepository=userRepository;
     }
-    @Override
-    public Invoice uploadInvoice(Long userId, Long vendorId, Invoice invoice) {
-        invoice.setUSER(userRepository.findById(userId).orElse(null));
-        invoice.setVendor(vendorRepository.findById(vendorId).orElse(null));
-        return invoiceRepository.save(invoice);
-    }
+    // @Override
+    // public Invoice uploadInvoice(Long userId, Long vendorId, Invoice invoice) {
+    //     invoice.setUSER(userRepository.findById(userId).orElse(null));
+    //     invoice.setVendor(vendorRepository.findById(vendorId).orElse(null));
+    //     return invoiceRepository.save(invoice);
+    // }
 
     @Override
     public Invoice categorizeInvoice(Long invoiceId) {

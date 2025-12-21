@@ -3,7 +3,7 @@ import java.util.List;
 import com.example.demo.model.Invoice;
 
 public interface InvoiceService {
-    Invoice uploadInvoice(Long userId, Long vendorId, Invoice invoice);
+    //Invoice uploadInvoice(Long userId, Long vendorId, Invoice invoice);
     Invoice categorizeInvoice(Long invoiceId);
     List<Invoice> getInvoiceByUser(Long userId);
     Invoice getInvoice(Long invoiceId);
