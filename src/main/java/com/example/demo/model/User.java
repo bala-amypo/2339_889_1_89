@@ -14,7 +14,14 @@ public class User{
     private String email;
     @Size(min=8)
     private String password;
-    
+
+    private String ADMIN;
+    private String USER;
+    private LocalDateTime createdAt;
+
+    public User(){
+
+    }
     public User(Long id, String fullName, String email, @Size(min = 8) String password, String aDMIN, String uSER,LocalDateTime createdAt) {
         this.id = id;
         this.fullName = fullName;
@@ -78,14 +85,5 @@ public class User{
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
-    }
-
-    private String ADMIN;
-    private String USER;
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private LocalDateTime createdAt;
-
-    public User(){
-
     }
 }

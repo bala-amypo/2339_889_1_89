@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 public class Category{
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique=true)
@@ -14,10 +15,7 @@ public class Category{
     private String description;
     
     private LocalDateTime createdAt;
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now(); // automatically set timestamp
-    }
+    
     public Category(){
 
     }
