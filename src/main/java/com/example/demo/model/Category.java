@@ -7,12 +7,17 @@ import java.time.LocalDateTime;
 
 public class Category{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique=true)
     private String categoryName;
     private String description;
-    private LocalDateTime createdAt;
     
+    private LocalDateTime createdAt;
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now(); // automatically set timestamp
+    }
     public Category(){
 
     }
