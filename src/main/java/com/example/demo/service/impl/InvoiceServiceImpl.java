@@ -21,12 +21,12 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
     @Autowired
     private VendorRepository vendorRepository;
-    public VendorServiceImpl(VendorRepository vendorRepository){
+    public InvoiceServiceImpl(VendorRepository vendorRepository){
         this.vendorRepository=vendorRepository;
     }
     @Autowired
     private UserRepository userRepository;
-    public UserServiceImpl(UserRepository userRepository){
+    public InvoiceServiceImpl(UserRepository userRepository){
         this.userRepository=userRepository;
     }
     @Override
