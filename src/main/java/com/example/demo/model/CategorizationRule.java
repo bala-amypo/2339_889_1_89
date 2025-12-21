@@ -4,81 +4,35 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "categorization_rules")
 public class CategorizationRule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
+    @ManyToOne
     private Category category;
 
-    @Column(nullable = false)
     private String keyword;
-
-    @Column(nullable = false)
-    private String matchType;
-
-    @Column(nullable = false)
+    private String matchType; // EXACT / CONTAINS / REGEX
     private Integer priority;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    // Required by JPA
-    public CategorizationRule() {
-        this.createdAt = LocalDateTime.now();
-    }
-
-    public CategorizationRule(Category category, String keyword, String matchType, Integer priority) {
-        this.category = category;
-        this.keyword = keyword;
-        this.matchType = matchType;
-        this.priority = priority;
-        this.createdAt = LocalDateTime.now();
-    }
-
-    // Getters
-    public Long getId() {
-        return id;
-    }
-
-    public Category getCategory() {
-        return category;
+    // ✅ GETTERS (REQUIRED)
+    public String getMatchType() {
+        return matchType;
     }
 
     public String getKeyword() {
         return keyword;
     }
 
-    public String getMatchType() {
-        return matchType;
-    }
-
     public Integer getPriority() {
         return priority;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    // Setters
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
-    public void setMatchType(String matchType) {
-        this.matchType = matchType;
-    }
-
-    public void setPriority(Integer priority) {
-        this.priority = priority;
+    public Category getCategory() {
+        return category;
     }
 }
