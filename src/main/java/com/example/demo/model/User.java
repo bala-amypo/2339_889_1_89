@@ -13,6 +13,16 @@ public class User{
     private String email;
     @Size(min=8)
     private String password;
+    
+    public User(Long id, String fullName, String email, @Size(min = 8) String password, String aDMIN, String uSER,LocalDateTime createdAt) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        ADMIN = aDMIN;
+        USER = uSER;
+        this.createdAt = createdAt;
+    }
     public Long getId() {
         return id;
     }

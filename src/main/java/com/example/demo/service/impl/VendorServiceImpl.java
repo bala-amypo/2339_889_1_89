@@ -8,12 +8,10 @@ import com.example.demo.service.VendorService;
 
 @Service
 public class VendorServiceImpl implements VendorService {
-
-    private final VendorRepository vendorRepository;
-
     @Autowired
-    public VendorServiceImpl(VendorRepository vendorRepository) {
-        this.vendorRepository = vendorRepository;
+    private final VendorRepository vendorRepository;
+    public VendorServiceImpl(VendorRepository vendorRepository){
+        this.vendorRepository=vendorRepository;
     }
 
     @Override
@@ -27,7 +25,7 @@ public class VendorServiceImpl implements VendorService {
     }
 
     @Override
-    public List<Vendor> getAllVendor() {
+    public List<Vendor> getAllVendors() {
         return vendorRepository.findAll();
     }
 }

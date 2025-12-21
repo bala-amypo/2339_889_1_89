@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class VendorController {
 
     @Autowired
-    private VendorService vendorService;
+    VendorService vendorService;
 
     @PostMapping
     public Vendor createVendor(@RequestBody Vendor vendor){
