@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import java.time.*;
 
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"vendor_id", "invoiceNumber"}))
 public class Invoice {
 
     @Id
@@ -14,16 +13,28 @@ public class Invoice {
     @ManyToOne
     private Vendor vendor;
 
-    private String invoiceNumber;
-    private Double amount;
-    private LocalDate invoiceDate;
-    private String description;
+    @ManyToOne
+    private User uploadedBy;
 
     @ManyToOne
     private Category category;
 
-    @ManyToOne
-    private User uploadedBy;
+    private String description;
 
-    private LocalDateTime uploadedAt = LocalDateTime.now();
+    // ✅ REQUIRED METHODS
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
+    }
+
+    public void setUploadedBy(User user) {
+        this.uploadedBy = user;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
