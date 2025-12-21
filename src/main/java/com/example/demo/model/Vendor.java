@@ -13,7 +13,6 @@ public class Vendor{
     @Email(message="Invalid fromat")
     private String contactEmail;
     private String address;
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private LocalDateTime createdAt;
     public Vendor(){
 
