@@ -1,5 +1,5 @@
 package com.example.demo.service.impl;
-import java.util.List;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.model.User;
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll();
     }
     @Override
-    public <Optonal<User> findByEmail(String email){
-        return userRepository.findByEmail(email);
+    public Optional<User> findByEmail(String email){
+        return userRepository.findByEmailId(email);
     }
 }
