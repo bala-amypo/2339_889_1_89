@@ -10,7 +10,9 @@ import com.example.demo.service.UserService;
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
-    public UserServiceImpl()
+    public UserServiceImpl(UserRepository userRepository){
+        this.userRepository=userRepository;
+    }
     @Override
     public User registerUser(User user){
         return userRepository.save(user);

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     @PostMapping("/register")
     public User registerUser(@RequestBody User user){
@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/{email}")
-    public User getUserByEmail(@PathVariable String email){
+    public User findByEmail(@PathVariable String email){
         return userService.findByEmail(email);
     }
 }
