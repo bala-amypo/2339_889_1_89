@@ -1,31 +1,32 @@
 package com.example.demo.service.impl;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import com.example.demo.model.Vendor;
 import com.example.demo.repository.VendorRepository;
 import com.example.demo.service.VendorService;
+import com.example.demo.exception.ResourceNotFoundException;
+import java.util.List;
 
-@Service
 public class VendorServiceImpl implements VendorService {
-    @Autowired
-    private final VendorRepository vendorRepository;
-    public VendorServiceImpl(VendorRepository vendorRepository){
-        this.vendorRepository=vendorRepository;
+
+    private final VendorRepository repo;
+
+    public VendorServiceImpl(VendorRepository repo) {
+        this.repo = repo;
     }
 
     @Override
     public Vendor createVendor(Vendor vendor) {
-        return vendorRepository.save(vendor);
+        return repo.save(vendor);
     }
 
     @Override
     public Vendor getVendor(Long vendorId) {
-        return vendorRepository.findById(vendorId).orElse(null);
+        return repo.findById(vendorId)
+                .orElseThrow(() -> new ResourceNotFoundException("Vendor not found"));
     }
 
     @Override
     public List<Vendor> getAllVendors() {
-        return vendorRepository.findAll();
+        return repo.findAll();
     }
 }
