@@ -22,7 +22,7 @@ public class VendorServiceImpl implements VendorService {
     @Override
     public Vendor getVendor(Long vendorId) {
         return repo.findById(vendorId)
-                .orElseThrow(() -> new ResourceNotFoundException("Vendor not found"));
+        .orElseThrow(() -> new ResourceNotFoundException("Vendor not found"));
     }
 
     @Override
