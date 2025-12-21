@@ -1,5 +1,5 @@
 package com.example.demo.controller;
-import java.util.List;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,8 +25,8 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{email}")
-    public Optional<User> findByEmail(@PathVariable String email){
+        @GetMapping("/email/{email}")
+    public Optional<User> findByEmail(@PathVariable String email) {
         return userService.findByEmail(email);
     }
 }

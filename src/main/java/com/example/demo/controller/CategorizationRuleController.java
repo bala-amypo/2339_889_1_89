@@ -31,7 +31,7 @@ public class CategorizationRuleController{
 
     @DeleteMapping("/{ruleId}")
     public void deleteRule(@PathVariable Long ruleId){
-       return ruleService.deleteRule(ruleId);
+       ruleService.deleteRule(ruleId);
     }
 }
 
