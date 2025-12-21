@@ -1,28 +1,32 @@
 package com.example.demo.controller;
-
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import com.example.demo.model.Category;
 import com.example.demo.service.CategoryService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/api/categories")
+@Tag(name = "Categories Endpoints")
 public class CategoryController {
 
-    private final CategoryService categoryService;
-
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
+    @Autowired
+    CategoryService categoryService;
 
     @PostMapping
-    public Category create(@RequestBody Category category) {
+    public Category createCategory(@RequestBody Category category){
         return categoryService.createCategory(category);
     }
-
     @GetMapping
-    public List<Category> getAll() {
+    public List<Category> getAllCategories(){
         return categoryService.getAllCategories();
+    }
+
+    @GetMapping("/{id}")
+    public Category getCategory(@PathVariable Long id){
+        return categoryService.getCategory(id);
     }
 }
