@@ -10,6 +10,7 @@ public interface InvoiceService {
     Invoice categorizeInvoice(Long invoiceId);
 
     List<Invoice> getInvoicesByUser(Long userId);
+    List<Invoice> getInvoicesByUser(Long userId);
 
     Invoice getInvoice(Long invoiceId);
 }
