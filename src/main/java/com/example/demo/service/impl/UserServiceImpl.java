@@ -17,13 +17,12 @@ public class UserServiceImpl implements UserService{
     public User registerUser(User user){
         return userRepository.save(user);
     }
-
-    @Override
-    public User findByEmail(String email){
-        return userRepository.findByEmail(email);
-    }
     @Override
     public List<User> getAllUsers(){
         return userRepository.findall();
+    }
+    @Override
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 }
