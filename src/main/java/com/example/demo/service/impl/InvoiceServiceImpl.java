@@ -16,13 +16,19 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Autowired
     private InvoiceRepository invoiceRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
+    public InvoiceServiceImpl(InvoiceRepository invoiceRepository){
+        this.invoiceRepository=invoiceRepository;
+    }
     @Autowired
     private VendorRepository vendorRepository;
-
+    public VendorServiceImpl(VendorRepository vendorRepository){
+        this.vendorRepository=vendorRepository;
+    }
+    @Autowired
+    private UserRepository userRepository;
+    public UserServiceImpl(UserRepository userRepository){
+        this.userRepository=userRepository;
+    }
     @Override
     public Invoice uploadInvoice(Long userId, Long vendorId, Invoice invoice) {
         invoice.setUser(userRepository.findById(userId).orElse(null));
