@@ -42,7 +42,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    public List<Invoice> getInvoicesByUser(Long userId) {
+    public List<Invoice> getInvoiceByUser(Long userId) {
         return invoiceRepository.findByUserId(userId);
     }
 
