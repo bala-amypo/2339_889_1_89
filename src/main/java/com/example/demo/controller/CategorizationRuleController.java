@@ -29,7 +29,7 @@ public class CategorizationRuleController{
         return ruleService.getRulesByCategory(categoryId);
     }
 
-    @DeleteMapping("/{ruled}")
+    @DeleteMapping("/{ruleId}")
     public void deleteRule(@PathVariable Long ruleId){
        return ruleService.deleteRule(ruleId);
     }
