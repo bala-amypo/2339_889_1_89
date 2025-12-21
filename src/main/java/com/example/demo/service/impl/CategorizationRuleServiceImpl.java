@@ -5,6 +5,8 @@ import com.example.demo.repository.CategorizationRuleRepository;
 import com.example.demo.service.CategorizationRuleService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategorizationRuleServiceImpl implements CategorizationRuleService {
 
@@ -12,5 +14,20 @@ public class CategorizationRuleServiceImpl implements CategorizationRuleService 
 
     public CategorizationRuleServiceImpl(CategorizationRuleRepository repository) {
         this.repository = repository;
+    }
+
+    @Override
+    public CategorizationRule saveRule(CategorizationRule rule) {
+        return repository.save(rule);
+    }
+
+    @Override
+    public List<CategorizationRule> getAllRules() {
+        return repository.findAll();
+    }
+
+    @Override
+    public void deleteRule(Long id) {
+        repository.deleteById(id);
     }
 }
