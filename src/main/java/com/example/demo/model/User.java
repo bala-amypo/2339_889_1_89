@@ -1,45 +1,50 @@
 package com.example.demo.model;
+
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
+
 @Entity
-@Table(name="user")
+@Table(name = "users") // avoid reserved keyword "user"
+public class User {
 
-
-public class User{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String fullName;
-    @Column(unique=true)
+
+    @Column(nullable = false, unique = true)
     private String email;
-    @Size(min=8)
+
+    @Size(min = 8)
+    @Column(nullable = false)
     private String password;
 
-    private String ADMIN;
-    private String USER;
-    private LocalDateTime createdAt;
-    
-    @ManyToOne(fetch = FetchType.LAZY)  
-    @JoinColumn(name = "category_id")   
-    private Category category;
-    public User(){
+    @Column(nullable = false)
+    private String role;
 
-    }
-    public User(Long id, String fullName, String email, @Size(min = 8) String password, String aDMIN, String uSER,LocalDateTime createdAt) {
-        this.id = id;
+    private LocalDateTime createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public User() {}
+
+    public User(String fullName, String email, String password,
+                String role, LocalDateTime createdAt, Category category) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        ADMIN = aDMIN;
-        USER = uSER;
+        this.role = role;
         this.createdAt = createdAt;
-    }
-    public Long getId() {
-        return id;
+        this.category = category;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getId() {
+        return id;
     }
 
     public String getFullName() {
@@ -66,20 +71,12 @@ public class User{
         this.password = password;
     }
 
-    public String getADMIN() {
-        return ADMIN;
+    public String getRole() {
+        return role;
     }
 
-    public void setADMIN(String aDMIN) {
-        ADMIN = aDMIN;
-    }
-
-    public String getUSER() {
-        return USER;
-    }
-
-    public void setUSER(String uSER) {
-        USER = uSER;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -89,6 +86,12 @@ public class User{
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
-
-

@@ -20,6 +20,7 @@ public class Invoice{
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+    
     private User uploadedBy;
     private LocalDateTime uploadedAt;
 
