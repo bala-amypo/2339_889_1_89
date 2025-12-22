@@ -29,8 +29,8 @@ public class InvoiceController{
     }
 
     @GetMapping("/user/{userId}")
-    public List<Invoice> getByUser(@PathVariable Long userId) {
-    return invoiceService.getInvoicesByUser(userId);
+    public List<Invoice> getInvoiceByUser(@PathVariable Long userId) {
+    return invoiceService.getInvoiceByUser(userId);
 }
 
     @GetMapping("/{invoiceId}")
