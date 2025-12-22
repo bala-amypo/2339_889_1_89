@@ -1,19 +1,58 @@
 package com.example.demo.model;
-
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
-
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "vendorName"))
-public class Vendor {
+@Table(name="vendors")
 
+public class Vendor{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(unique=true)
     private String vendorName;
+    @Email(message="Invalid fromat")
     private String contactEmail;
     private String address;
+    private LocalDateTime createdAt;
+    public Vendor(){
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    }
+    public Vendor(Long id,String vendorName,String contactEmail,String address,LocalDateTime createdAt){
+        this.id=id;
+        this.vendorName=vendorName;
+        this.contactEmail=contactEmail;
+        this.address=address;
+        this.createdAt=createdAt;
+    }
+
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id=id;
+    }
+    public String getVendorName(){
+        return vendorName;
+    }
+    public void setVendorName(String vendorName){
+        this.vendorName=vendorName;
+    }
+    public String getContactEmail(){
+        return contactEmail;
+    }
+    public void setContactEmail(String contactEmail){
+        this.contactEmail=contactEmail;
+    }
+    public String getAddress(){
+        return address;
+    }
+    public void setAddress(String address){
+        this.address=address;
+    }
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+    public void setCreatedAt(LocalDateTime createdAt){
+        this.createdAt=createdAt;
+    }
 }
