@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class Invoice{
     @Id
     private Long id;
+    
     private Vendor vendor;
     @Column (unique=true)
     private String invoiceNumber;
@@ -20,7 +21,8 @@ public class Invoice{
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-    
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User uploadedBy;
     private LocalDateTime uploadedAt;
 
