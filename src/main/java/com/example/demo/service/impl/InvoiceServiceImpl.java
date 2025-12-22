@@ -17,12 +17,8 @@ public class InvoiceServiceImpl implements InvoiceService {
     private final VendorRepository vendorRepository;
     private final UserRepository userRepository;
 
-    // ✅ ONE constructor with ALL dependencies
-    public InvoiceServiceImpl(
-            InvoiceRepository invoiceRepository,
-            VendorRepository vendorRepository,
-            UserRepository userRepository) {
-
+    // Constructor injection for all dependencies
+    public InvoiceServiceImpl(InvoiceRepository invoiceRepository, VendorRepository vendorRepository, UserRepository userRepository) {
         this.invoiceRepository = invoiceRepository;
         this.vendorRepository = vendorRepository;
         this.userRepository = userRepository;
@@ -35,11 +31,21 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     public List<Invoice> getInvoiceByUser(Long userId) {
-        return invoiceRepository.findByUser_Id(userId);
+        return invoiceRepository.findByUploadedBy_Id(userId);
     }
 
     @Override
     public Invoice getInvoice(Long invoiceId) {
         return invoiceRepository.findById(invoiceId).orElse(null);
     }
+
+    // Example for uploadInvoice method if needed
+    /*
+    @Override
+    public Invoice uploadInvoice(Long userId, Long vendorId, Invoice invoice) {
+        invoice.setUploadedBy(userRepository.findById(userId).orElse(null));
+        invoice.setVendor(vendorRepository.findById(vendorId).orElse(null));
+        return invoiceRepository.save(invoice);
+    }
+    */
 }
