@@ -10,7 +10,9 @@ import java.time.LocalDateTime;
 public class Invoice{
     @Id
     private Long id;
-    
+
+    @ManyToOne
+    @JoinColumn(name = "vendor_id")
     private Vendor vendor;
     @Column (unique=true)
     private String invoiceNumber;
