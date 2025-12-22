@@ -14,14 +14,10 @@ public class UserServiceImpl implements UserService {
         this.repo = repo;
     }
 
-    // @Override
-    // public User registerUser(User user) {
-    //     if (repo.existsByEmail(user.getEmail())) {
-    //         throw new RuntimeException("Email already in use");
-    //     }
-    //     user.setRole("USER");
-    //     return repo.save(user);
-    // }
+    @Override
+    public User registerUser(User user) {
+        return repo.save(user);
+    }
 
     @Override
     public User findByEmail(String email) {
