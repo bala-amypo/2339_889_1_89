@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 public class CategorizationRule{
     @Id
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
     private String keyword;
     private Integer priority;

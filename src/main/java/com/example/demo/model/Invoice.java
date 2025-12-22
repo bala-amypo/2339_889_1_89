@@ -17,6 +17,8 @@ public class Invoice{
     private Double amount;
     private LocalDate invoiceDate;
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
     private User uploadedBy;
     private LocalDateTime uploadedAt;
