@@ -1,10 +1,9 @@
-package com.example.demo.service;
+package com.example.demo.repository;
 
 import com.example.demo.model.Category;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategoryService {
-    Category createCategory(Category category);
-    List<Category> getAllCategories();
-    Category getCategory(Long id);
+@Repository
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 }
