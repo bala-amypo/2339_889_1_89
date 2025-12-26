@@ -1,34 +1,35 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Vendor;
-import com.example.demo.service.VendorService;
-
-import io.swagger.v3.oas.annotations.tags.Tag;
+import com.example.demo.service.impl.VendorServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/vendors")
-@Tag(name = "Vendors")
+@CrossOrigin(origins = "*")
 public class VendorController {
-
-    private final VendorService vendorService;
-
-    public VendorController(VendorService vendorService) { this.vendorService = vendorService; }
-
+    
+    @Autowired
+    private VendorServiceImpl vendorService;
+    
     @PostMapping
-    public Vendor createVendor(@RequestBody Vendor vendor) {
-        return vendorService.createVendor(vendor);
+    public ResponseEntity<Vendor> createVendor(@RequestBody Vendor vendor) {
+        Vendor savedVendor = vendorService.createVendor(vendor);
+        return ResponseEntity.ok(savedVendor);
     }
-
+    
     @GetMapping
-    public List<Vendor> getAllVendors() {
-        return vendorService.getAllVendors();
+    public ResponseEntity<List<Vendor>> getAllVendors() {
+        List<Vendor> vendors = vendorService.getAllVendors();
+        return ResponseEntity.ok(vendors);
     }
-
-    @GetMapping("/{vendorId}")
-    public Vendor getVendor(@PathVariable Long vendorId) {
-        return vendorService.getVendor(vendorId);
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<Vendor> getVendor(@PathVariable Long id) {
+        Vendor vendor = vendorService.getVendor(id);
+        return ResponseEntity.ok(vendor);
     }
 }
