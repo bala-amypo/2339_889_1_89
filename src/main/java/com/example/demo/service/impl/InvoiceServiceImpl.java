@@ -10,7 +10,7 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.VendorRepository;
 import com.example.demo.repository.CategorizationRuleRepository;
 import com.example.demo.service.InvoiceService;
-import com.example.demo.service.CategorizationService;
+import com.example.demo.service.CategorizationRuleService;
 import com.example.demo.util.InvoiceCategorizationEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     private final InvoiceCategorizationEngine engine;
     
     @Autowired
-    private CategorizationService categorizationService;
+    private CategorizationRuleService categorizationService;
     
     public InvoiceServiceImpl(InvoiceRepository invoiceRepository, UserRepository userRepository, 
                              VendorRepository vendorRepository, CategorizationRuleRepository ruleRepository,
