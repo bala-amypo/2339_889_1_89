@@ -1,59 +1,37 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.CategorizationRule;
-import com.example.demo.model.Category;
-import com.example.demo.service.impl.CategorizationRuleServiceImpl;
-import com.example.demo.util.InvoiceCategorizationEngine;
-import com.example.demo.repository.CategorizationRuleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import com.example.demo.service.CategorizationRuleService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
-@RequestMapping("/api/categorization-rules")
+@RequestMapping("/api/rules")
+@Tag(name = "Categorization Rules")
 public class CategorizationRuleController {
 
-    @Autowired
-    private CategorizationRuleServiceImpl ruleService;
-    
-    @Autowired
-    private CategorizationRuleRepository ruleRepository;
-    
-    @Autowired
-    private InvoiceCategorizationEngine engine;
+    private final CategorizationRuleService ruleService;
 
-    @PostMapping
-    public ResponseEntity<CategorizationRule> createRule(@RequestBody CategorizationRule rule) {
-        return ResponseEntity.ok(ruleService.createRule(rule));
+    public CategorizationRuleController(CategorizationRuleService ruleService) {
+        this.ruleService = ruleService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CategorizationRule> getRule(@PathVariable Long id) {
-        return ResponseEntity.ok(ruleService.getRule(id));
+    @PostMapping("/category/{categoryId}")
+    public CategorizationRule createRule(@PathVariable Long categoryId,
+                                         @RequestBody CategorizationRule rule) {
+        return ruleService.createRule(categoryId, rule);
     }
 
-    @GetMapping
-    public ResponseEntity<List<CategorizationRule>> getAllRules() {
-        return ResponseEntity.ok(ruleService.getAllRules());
+    @GetMapping("/category/{categoryId}")
+    public List<CategorizationRule> getRules(@PathVariable Long categoryId) {
+        return ruleService.getRulesByCategory(categoryId);
     }
 
-    @PostMapping("/test")
-    public ResponseEntity<Map<String, Object>> testCategorization(@RequestBody Map<String, String> request) {
-        String description = request.get("description");
-        List<CategorizationRule> rules = ruleRepository.findMatchingRulesByDescription(description);
-        
-        // Create a mock invoice for testing
-        com.example.demo.model.Invoice testInvoice = new com.example.demo.model.Invoice();
-        testInvoice.setDescription(description);
-        
-        Category suggestedCategory = engine.determineCategory(testInvoice, rules);
-        
-        return ResponseEntity.ok(Map.of(
-            "matchedRules", rules,
-            "suggestedCategory", suggestedCategory != null ? suggestedCategory : "No category matched"
-        ));
+    @DeleteMapping("/{ruleId}")
+    public void deleteRule(@PathVariable Long ruleId) {
+        ruleService.deleteRule(ruleId);
     }
 }
