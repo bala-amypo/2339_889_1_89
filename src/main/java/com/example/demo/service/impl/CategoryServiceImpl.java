@@ -1,43 +1,26 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Invoice;
 import com.example.demo.model.Category;
-import com.example.demo.model.CategorizationRule;
-import com.example.demo.service.CategorizationService;
-import com.example.demo.repository.CategorizationRuleRepository;
-import com.example.demo.util.InvoiceCategorizationEngine;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.repository.CategoryRepository;
+import com.example.demo.service.CategoryService;
+import com.example.demo.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service
-public class CategoryServiceImpl implements CategorizationService {
+public class CategoryServiceImpl implements CategoryService {
+    private final CategoryRepository categoryRepository;
     
-    @Autowired
-    private CategorizationRuleRepository ruleRepository;
-    
-    @Autowired
-    private InvoiceCategorization engine;
-    
-    @Override
-    public Category categorizeInvoice(Invoice invoice) {
-        if (invoice.getDescription() == null) {
-            return null;
-        }
-        
-        List<CategorizationRule> rules = ruleRepository.findMatchingRulesByDescription(invoice.getDescription());
-        return engine.determineCategory(invoice, rules);
+    public CategoryServiceImpl(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
     }
     
     @Override
-    public List<CategorizationRule> findMatchingRules(String description) {
-        return ruleRepository.findMatchingRulesByDescription(description);
+    public Category createCategory(Category category) {
+        return categoryRepository.save(category);
     }
     
-    @Override
-    public Category testCategorization(String description) {
-        Invoice testInvoice = new Invoice();
-        testInvoice.setDescription(description);
-        return categorizeInvoice(testInvoice);
+    public Category getCategory(Long id) {
+        return categoryRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
     }
 }
