@@ -6,10 +6,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/hello-servlet")
+@WebServlet(urlPatterns = {"/hello"})
 public class HelloServlet extends HttpServlet {
-
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.getWriter().write("Hello Servlet");
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.getWriter().println("Hello World");
     }
 }
