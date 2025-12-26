@@ -1,37 +1,41 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.CategorizationRule;
-import com.example.demo.service.CategorizationRuleService;
-
-import io.swagger.v3.oas.annotations.tags.Tag;
+import com.example.demo.service.impl.CategorizationRuleServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/rules")
-@Tag(name = "Categorization Rules")
+@CrossOrigin(origins = "*")
 public class CategorizationRuleController {
-
-    private final CategorizationRuleService ruleService;
-
-    public CategorizationRuleController(CategorizationRuleService ruleService) {
-        this.ruleService = ruleService;
+    
+    @Autowired
+    private CategorizationRuleServiceImpl ruleService;
+    
+    @PostMapping
+    public ResponseEntity<CategorizationRule> createRule(@RequestBody CategorizationRule rule) {
+        CategorizationRule savedRule = ruleService.createRule(rule);
+        return ResponseEntity.ok(savedRule);
     }
-
-    @PostMapping("/category/{categoryId}")
-    public CategorizationRule createRule(@PathVariable Long categoryId,
-                                         @RequestBody CategorizationRule rule) {
-        return ruleService.createRule(categoryId, rule);
+    
+    @GetMapping
+    public ResponseEntity<List<CategorizationRule>> getAllRules() {
+        List<CategorizationRule> rules = ruleService.getAllRules();
+        return ResponseEntity.ok(rules);
     }
-
-    @GetMapping("/category/{categoryId}")
-    public List<CategorizationRule> getRules(@PathVariable Long categoryId) {
-        return ruleService.getRulesByCategory(categoryId);
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<CategorizationRule> getRule(@PathVariable Long id) {
+        CategorizationRule rule = ruleService.getRule(id);
+        return ResponseEntity.ok(rule);
     }
-
-    @DeleteMapping("/{ruleId}")
-    public void deleteRule(@PathVariable Long ruleId) {
-        ruleService.deleteRule(ruleId);
+    
+    @GetMapping("/match")
+    public ResponseEntity<List<CategorizationRule>> findMatchingRules(@RequestParam String description) {
+        List<CategorizationRule> rules = ruleService.findMatchingRules(description);
+        return ResponseEntity.ok(rules);
     }
 }
