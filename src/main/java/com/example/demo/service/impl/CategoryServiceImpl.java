@@ -1,31 +1,43 @@
 package com.example.demo.service.impl;
-import java.util.List;
+
+import com.example.demo.model.Invoice;
+import com.example.demo.model.Category;
+import com.example.demo.model.CategorizationRule;
+import com.example.demo.service.CategorizationService;
+import com.example.demo.repository.CategorizationRuleRepository;
+import com.example.demo.util.InvoiceCategorizationEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.demo.model.Category;
-import com.example.demo.repository.CategoryRepository;
-import com.example.demo.service.CategoryService;
+import java.util.List;
 
 @Service
-public class CategoryServiceImpl implements CategoryService{
-
+public class CategoryServiceImpl implements CategorizationService {
+    
     @Autowired
-    private CategoryRepository categoryRepository;
-    public CategoryServiceImpl(CategoryRepository categoryRepository){
-        this.categoryRepository=categoryRepository;
-    }
+    private CategorizationRuleRepository ruleRepository;
+    
+    @Autowired
+    private InvoiceCategorization engine;
+    
     @Override
-    public Category createCategory(Category category){
-        return categoryRepository.save(category);
+    public Category categorizeInvoice(Invoice invoice) {
+        if (invoice.getDescription() == null) {
+            return null;
+        }
+        
+        List<CategorizationRule> rules = ruleRepository.findMatchingRulesByDescription(invoice.getDescription());
+        return engine.determineCategory(invoice, rules);
     }
-
+    
     @Override
-    public Category getCategory(Long id){
-        return categoryRepository.findById(id).orElse(null);
+    public List<CategorizationRule> findMatchingRules(String description) {
+        return ruleRepository.findMatchingRulesByDescription(description);
     }
-
+    
     @Override
-    public List<Category> getAllCategories(){
-        return categoryRepository.findAll();
+    public Category testCategorization(String description) {
+        Invoice testInvoice = new Invoice();
+        testInvoice.setDescription(description);
+        return categorizeInvoice(testInvoice);
     }
 }
