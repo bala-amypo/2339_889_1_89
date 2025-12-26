@@ -1,81 +1,53 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "invoice")
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"vendor_id", "invoiceNumber"}))
 public class Invoice {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "vendor_id")
-    private Vendor vendor;
-
-    @Column(unique = true)
+    
     private String invoiceNumber;
-
-    @Positive
     private Double amount;
-
     private LocalDate invoiceDate;
     private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User uploadedBy;
-
     private LocalDateTime uploadedAt;
-
-    public Invoice() {}
-
-    public Invoice(Long id, Vendor vendor, String invoiceNumber, Double amount, LocalDate invoiceDate,
-                   String description, Category category, User uploadedBy, LocalDateTime uploadedAt) {
-        this.id = id;
-        this.vendor = vendor;
-        this.invoiceNumber = invoiceNumber;
-        this.amount = amount;
-        this.invoiceDate = invoiceDate;
-        this.description = description;
-        this.category = category;
-        this.uploadedBy = uploadedBy;
-        this.uploadedAt = uploadedAt;
+    
+    @ManyToOne
+    private User uploadedBy;
+    
+    @ManyToOne
+    private Vendor vendor;
+    
+    @ManyToOne
+    private Category category;
+    
+    @PrePersist
+    public void prePersist() {
+        this.uploadedAt = LocalDateTime.now();
     }
-
+    
     // Getters and setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-
-    public Vendor getVendor() { return vendor; }
-    public void setVendor(Vendor vendor) { this.vendor = vendor; }
-
     public String getInvoiceNumber() { return invoiceNumber; }
     public void setInvoiceNumber(String invoiceNumber) { this.invoiceNumber = invoiceNumber; }
-
     public Double getAmount() { return amount; }
     public void setAmount(Double amount) { this.amount = amount; }
-
     public LocalDate getInvoiceDate() { return invoiceDate; }
     public void setInvoiceDate(LocalDate invoiceDate) { this.invoiceDate = invoiceDate; }
-
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-
-    public Category getCategory() { return category; }
-    public void setCategory(Category category) { this.category = category; }
-
-    public User getUploadedBy() { return uploadedBy; }
-    public void setUploadedBy(User uploadedBy) { this.uploadedBy = uploadedBy; }
-
     public LocalDateTime getUploadedAt() { return uploadedAt; }
     public void setUploadedAt(LocalDateTime uploadedAt) { this.uploadedAt = uploadedAt; }
+    public User getUploadedBy() { return uploadedBy; }
+    public void setUploadedBy(User uploadedBy) { this.uploadedBy = uploadedBy; }
+    public Vendor getVendor() { return vendor; }
+    public void setVendor(Vendor vendor) { this.vendor = vendor; }
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) { this.category = category; }
 }
