@@ -1,34 +1,35 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Category;
-import com.example.demo.service.CategoryService;
-
-import io.swagger.v3.oas.annotations.tags.Tag;
+import com.example.demo.service.impl.CategoryServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/categories")
-@Tag(name = "Categories")
+@CrossOrigin(origins = "*")
 public class CategoryController {
-
-    private final CategoryService categoryService;
-
-    public CategoryController(CategoryService categoryService) { this.categoryService = categoryService; }
-
+    
+    @Autowired
+    private CategoryServiceImpl categoryService;
+    
     @PostMapping
-    public Category createCategory(@RequestBody Category category) {
-        return categoryService.createCategory(category);
+    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
+        Category savedCategory = categoryService.createCategory(category);
+        return ResponseEntity.ok(savedCategory);
     }
-
+    
     @GetMapping
-    public List<Category> getAllCategories() {
-        return categoryService.getAllCategories();
+    public ResponseEntity<List<Category>> getAllCategories() {
+        List<Category> categories = categoryService.getAllCategories();
+        return ResponseEntity.ok(categories);
     }
-
-    @GetMapping("/{categoryId}")
-    public Category getCategory(@PathVariable Long categoryId) {
-        return categoryService.getCategory(categoryId);
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<Category> getCategory(@PathVariable Long id) {
+        Category category = categoryService.getCategory(id);
+        return ResponseEntity.ok(category);
     }
 }
