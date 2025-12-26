@@ -1,35 +1,47 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.InvoiceUploadRequest;
 import com.example.demo.model.Invoice;
-import com.example.demo.service.impl.InvoiceServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import com.example.demo.service.InvoiceService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/invoices")
+@Tag(name = "Invoices")
 public class InvoiceController {
 
-    @Autowired
-    private InvoiceServiceImpl invoiceService;
+    private final InvoiceService invoiceService;
 
-    @PostMapping("/upload")
-    public ResponseEntity<Invoice> uploadInvoice(@RequestParam Long userId, @RequestParam Long vendorId, @RequestBody Invoice invoice) {
-        Invoice savedInvoice = invoiceService.uploadInvoice(userId, vendorId, invoice);
-        return ResponseEntity.ok(savedInvoice);
+    public InvoiceController(InvoiceService invoiceService) { this.invoiceService = invoiceService; }
+
+    @PostMapping("/upload/{userId}/{vendorId}")
+    public Invoice uploadInvoice(@PathVariable Long userId,
+                                 @PathVariable Long vendorId,
+                                 @RequestBody InvoiceUploadRequest dto) {
+        Invoice invoice = new Invoice();
+        invoice.setInvoiceNumber(dto.getInvoiceNumber());
+        invoice.setAmount(dto.getAmount());
+        invoice.setInvoiceDate(dto.getInvoiceDate());
+        invoice.setDescription(dto.getDescription());
+        return invoiceService.uploadInvoice(userId, vendorId, invoice);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Invoice> getInvoice(@PathVariable Long id) {
-        Invoice invoice = invoiceService.getInvoice(id);
-        return ResponseEntity.ok(invoice);
+    @PostMapping("/categorize/{invoiceId}")
+    public Invoice categorizeInvoice(@PathVariable Long invoiceId) {
+        return invoiceService.categorizeInvoice(invoiceId);
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Invoice>> getInvoicesByUser(@PathVariable Long userId) {
-        List<Invoice> invoices = invoiceService.getInvoicesByUser(userId);
-        return ResponseEntity.ok(invoices);
+    public List<Invoice> getInvoicesByUser(@PathVariable Long userId) {
+        return invoiceService.getInvoicesByUser(userId);
+    }
+
+    @GetMapping("/{invoiceId}")
+    public Invoice getInvoice(@PathVariable Long invoiceId) {
+        return invoiceService.getInvoice(invoiceId);
     }
 }
