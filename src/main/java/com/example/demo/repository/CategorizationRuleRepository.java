@@ -1,16 +1,11 @@
-
 package com.example.demo.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.example.demo.model.CategorizationRule;
+import java.util.List;
+import java.util.Optional;
 
-public interface CategorizationRuleRepository
-        extends JpaRepository<CategorizationRule, Long> {
-
-    List<CategorizationRule> findByCategoryId(Long categoryId);
+public interface CategorizationRuleRepository {
+    CategorizationRule save(CategorizationRule rule);
+    Optional<CategorizationRule> findById(Long id);
+    List<CategorizationRule> findMatchingRulesByDescription(String description);
 }
-
-
