@@ -1,21 +1,34 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Vendor;
-import com.example.demo.service.impl.VendorServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import com.example.demo.service.VendorService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/vendors")
+@Tag(name = "Vendors")
 public class VendorController {
 
-    @Autowired
-    private VendorServiceImpl vendorService;
+    private final VendorService vendorService;
+
+    public VendorController(VendorService vendorService) { this.vendorService = vendorService; }
 
     @PostMapping
-    public ResponseEntity<Vendor> createVendor(@RequestBody Vendor vendor) {
-        Vendor savedVendor = vendorService.createVendor(vendor);
-        return ResponseEntity.ok(savedVendor);
+    public Vendor createVendor(@RequestBody Vendor vendor) {
+        return vendorService.createVendor(vendor);
+    }
+
+    @GetMapping
+    public List<Vendor> getAllVendors() {
+        return vendorService.getAllVendors();
+    }
+
+    @GetMapping("/{vendorId}")
+    public Vendor getVendor(@PathVariable Long vendorId) {
+        return vendorService.getVendor(vendorId);
     }
 }
