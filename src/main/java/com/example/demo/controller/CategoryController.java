@@ -1,26 +1,34 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Category;
-import com.example.demo.service.impl.CategoryServiceImpl;
-import com.example.demo.exception.ResourceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import com.example.demo.service.CategoryService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/categories")
+@Tag(name = "Categories")
 public class CategoryController {
 
-    @Autowired
-    private CategoryServiceImpl categoryService;
+    private final CategoryService categoryService;
+
+    public CategoryController(CategoryService categoryService) { this.categoryService = categoryService; }
 
     @PostMapping
-    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
-        return ResponseEntity.ok(categoryService.createCategory(category));
+    public Category createCategory(@RequestBody Category category) {
+        return categoryService.createCategory(category);
     }
-    
-    @GetMapping("/{id}")
-    public ResponseEntity<Category> getCategory(@PathVariable Long id) {
-        return ResponseEntity.ok(categoryService.getCategory(id));
+
+    @GetMapping
+    public List<Category> getAllCategories() {
+        return categoryService.getAllCategories();
+    }
+
+    @GetMapping("/{categoryId}")
+    public Category getCategory(@PathVariable Long categoryId) {
+        return categoryService.getCategory(categoryId);
     }
 }
