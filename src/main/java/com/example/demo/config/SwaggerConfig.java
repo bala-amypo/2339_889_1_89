@@ -19,7 +19,7 @@ public class SwaggerConfig {
                 .title("Invoice Management API")
                 .version("1.0")
                 .description("API backend for managing users, vendors, and invoices"))
-            .addServersItem(new Server().url("https://9103.32procr.amypo.ai/")) // <-- your URL here
+            .addServersItem(new Server().url("https://9321.pro604cr.amypo.ai/")) // <-- your URL here
             .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
             .components(new Components()
                 .addSecuritySchemes("Bearer Authentication",
